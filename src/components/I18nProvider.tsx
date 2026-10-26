@@ -4,10 +4,12 @@ import { createContext, useContext } from "react";
 import type { Locale } from "@/i18n/config";
 import type { Dict } from "@/i18n/dictionaries/en";
 import type { ToolSlug } from "@/lib/tools";
+import type { WorkflowSlug } from "@/lib/workflows";
 
 export type ToolSummaries = Record<ToolSlug, { name: string; short: string }>;
+export type WorkflowNames = Record<WorkflowSlug, { name: string; short: string }>;
 
-type I18nValue = { locale: Locale; dict: Dict; tools: ToolSummaries };
+type I18nValue = { locale: Locale; dict: Dict; tools: ToolSummaries; workflows: WorkflowNames };
 
 const I18nContext = createContext<I18nValue | null>(null);
 

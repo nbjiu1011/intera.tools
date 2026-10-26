@@ -116,7 +116,7 @@ export function ChoiceCards<T extends string>({
             aria-checked={active}
             onClick={() => onChange(o.value)}
             className={`flex items-center gap-3 rounded-2xl border px-4 py-3 text-left transition ${
-              active ? "border-brand bg-brand/[.06] shadow-[0_0_0_3px_rgba(79,123,255,.12)]" : "border-line hover:border-line-strong"
+              active ? "border-brand bg-brand/[.06] shadow-[0_0_0_3px_rgba(36,81,255,.12)]" : "border-line hover:border-line-strong"
             }`}
           >
             <span
@@ -222,7 +222,7 @@ export function NumberInput({
       <label htmlFor={id} className="text-xs font-semibold text-ink-2">
         {label}
       </label>
-      <div className="flex h-11 items-center rounded-xl border border-line bg-surface px-3 transition focus-within:border-brand focus-within:shadow-[0_0_0_3px_rgba(79,123,255,.15)]">
+      <div className="flex h-11 items-center rounded-xl border border-line bg-surface px-3 transition focus-within:border-brand focus-within:shadow-[0_0_0_3px_rgba(36,81,255,.15)]">
         <input
           id={id}
           type="number"
@@ -266,7 +266,7 @@ export function TextInput({
 }) {
   const id = useId();
   const cls =
-    "w-full rounded-xl border border-line bg-surface px-3.5 text-[0.95rem] text-ink outline-none transition placeholder:text-ink-3 focus:border-brand focus:shadow-[0_0_0_3px_rgba(79,123,255,.15)]";
+    "w-full rounded-xl border border-line bg-surface px-3.5 text-[0.95rem] text-ink outline-none transition placeholder:text-ink-3 focus:border-brand focus:shadow-[0_0_0_3px_rgba(36,81,255,.15)]";
   return (
     <div className="grid gap-1.5">
       <label htmlFor={id} className="text-sm font-semibold text-ink">

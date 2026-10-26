@@ -21,12 +21,12 @@ const content = {
         body: "Light keeps the best quality, Balanced is the recommended default and Strong aims for the smallest file. JPG and WebP also get an advanced quality slider.",
       },
       {
-        title: "Never bigger than before",
-        body: "If a compressed version would end up larger than your original, Intera Tools keeps the original and marks it as already optimized.",
+        title: "Original kept when there's no gain",
+        body: "If a compressed file in the same format would not be smaller than your original, Intera Tools keeps the original and marks it as already optimized.",
       },
       {
         title: "Private by design",
-        body: "Images are compressed locally in your browser and never uploaded to Intera Tools servers. Location data and other metadata are removed from the results.",
+        body: "Images are compressed locally in your browser and never uploaded to Intera Tools servers. Location data and other metadata are removed from every re-encoded image.",
       },
     ],
     about: {
@@ -37,6 +37,28 @@ const content = {
         "Because everything happens on your device, there is no upload to wait for and no copy of your images on a server. Practical limits depend on your device's memory: up to 100 images per batch and 50 MB per image. When you are done, download the results or send them straight to another tool, such as Resize Image, without uploading them again.",
       ],
     },
+    useCases: [
+      {
+        title: "Photos rejected by an upload form",
+        body: "A job portal, school or government form refuses your phone photos because each file is over its size limit. Compression keeps the pixel dimensions and re-encodes the image more efficiently, and the result screen shows every new size so you can check it against the limit before submitting.",
+      },
+      {
+        title: "A slow blog or shop page",
+        body: "Your product shots or blog images already have the right dimensions but still make the page heavy. Compress the whole folder in one batch, or turn on Convert to WebP if your site can serve WebP files.",
+      },
+      {
+        title: "Oversized PNG screenshots and graphics",
+        body: "Screenshots, charts and interface mockups saved as PNG are often far larger than they need to be. PNG compression reduces them to a palette of up to 256 colors, which suits flat graphics and keeps transparent backgrounds intact.",
+      },
+    ],
+    limits: [
+      "Only JPG, PNG and WebP files are accepted, up to 100 per batch and 50 MB each; convert GIF, BMP, AVIF or HEIC images first.",
+      "Light, Balanced and Strong use JPG/WebP quality 85, 72 and 55 and PNG palettes of 256, 160 and 64 colors; Advanced allows quality 10–95 and 16–256 colors.",
+      "PNG compression is lossy palette quantization, so gradients and photos saved as PNG can show visible banding at lower color counts.",
+      "If a re-encoded file in the same format would not be smaller, the original is returned untouched with its metadata; every re-encoded result is saved without EXIF or GPS data.",
+      "With Convert to WebP turned on, the WebP result is always used even if it is larger, and the option is unavailable in browsers that cannot create WebP files.",
+      "Results keep the original file name (with a .webp extension when converted), and on iPhone and iPad images above about 16.7 megapixels cannot be processed.",
+    ],
     faq: [
       {
         q: "Is this image compressor free?",
@@ -52,7 +74,7 @@ const content = {
       },
       {
         q: "Why does a file say “already optimized”?",
-        a: "Some images are already compressed efficiently. If the new version would be larger than your original, Intera Tools keeps the original file and labels it already optimized.",
+        a: "Some images are already compressed efficiently. If the new version would be larger than your original, Intera Tools keeps the original file and labels it already optimized. That untouched original still contains any metadata it had.",
       },
       {
         q: "Does compressing a PNG keep transparency?",
@@ -92,10 +114,32 @@ const content = {
       title: "When and how to resize an image",
       paragraphs: [
         "Many websites, online shops, forms and social platforms expect images of a particular size, and a photo from a modern phone is usually far larger than needed. Resizing reduces the pixel dimensions, which also makes the file noticeably smaller and faster to upload or share. Intera Tools lets you set an exact width and height or scale everything by a percentage, with the aspect ratio locked so nothing looks stretched.",
-        "When you resize a batch, every image gets the same settings. If your batch mixes large and small pictures, the “Don't enlarge smaller images” option leaves images that are already smaller than the target untouched, because enlarging adds pixels without adding real detail. JPG, PNG and WebP files keep their original format. GIF, BMP and AVIF images are saved as PNG, and for animated GIFs only the first frame is used.",
+        "When you resize a batch, every image gets the same settings. If your batch mixes large and small pictures, the “Don't enlarge smaller images” option leaves images that are already smaller than the target untouched, because enlarging adds pixels without adding real detail. JPG, PNG and WebP files keep their original format. GIF, BMP, AVIF and SVG images are saved as PNG, and for animated GIFs only the first frame is used.",
         "Resizing happens locally in your browser, so your images are never uploaded to Intera Tools servers, and metadata such as EXIF and GPS location is removed from the results. After resizing, you can download the files or continue straight to another tool, for example Compress Image, to make them even smaller without uploading them again.",
       ],
     },
+    useCases: [
+      {
+        title: "Matching a required width",
+        body: "A shop platform, CMS or application form asks for images of a set width, such as 1000 pixels. Enter that width with Keep aspect ratio on, and every image in the batch gets it while each height follows the image's own proportions.",
+      },
+      {
+        title: "Lighter photos for email",
+        body: "Twenty holiday photos straight from a phone are too heavy to email. Scaling the batch to 50% leaves a quarter of the pixels in each photo, which cuts the file sizes considerably without cropping anything.",
+      },
+      {
+        title: "A folder that mixes large and small images",
+        body: "Camera photos sit next to small icons and thumbnails. With Don't enlarge smaller images on, only the large files are reduced and the small ones are not blown up into blurry copies.",
+      },
+    ],
+    limits: [
+      "Accepts JPG, PNG, WebP, GIF, BMP, AVIF and SVG (HEIC only in browsers that can open it), up to 100 files of 50 MB each.",
+      "JPG, PNG and WebP keep their format; GIF, BMP, AVIF, SVG and HEIC are saved as PNG, and animated images keep only their first frame.",
+      "JPG and WebP results are re-encoded at quality 92 with no quality setting here, so use Compress Image afterwards if you need smaller files.",
+      "With Keep aspect ratio off and both width and height set, every image is stretched to exactly that size; crop first if you need an exact size without distortion.",
+      "Custom scaling ranges from 1% to 400%, and enlarging adds pixels but no real detail.",
+      "Results are named with the new size, for example photo-1200x800.jpg, and EXIF data including GPS location is not kept.",
+    ],
     faq: [
       {
         q: "How do I resize an image without stretching it?",
@@ -107,7 +151,7 @@ const content = {
       },
       {
         q: "Which formats does the resizer support?",
-        a: "JPG, PNG and WebP images keep their format. GIF, BMP and AVIF images can be resized too and are saved as PNG; animated GIFs use only the first frame.",
+        a: "JPG, PNG and WebP images keep their format. GIF, BMP, AVIF and SVG images can be resized too and are saved as PNG; animated GIFs use only the first frame.",
       },
       {
         q: "Will resizing make my image blurry?",
@@ -155,6 +199,28 @@ const content = {
         "Your image is cropped locally in the browser and never uploaded to Intera Tools servers, and metadata such as EXIF and GPS location is removed from the result. The cropper works the same way in desktop, tablet and mobile browsers. When the crop looks right, download it or continue straight to Resize Image or Compress Image without uploading the file again.",
       ],
     },
+    useCases: [
+      {
+        title: "A square profile picture",
+        body: "A messenger, forum or company directory wants a square photo. Choose 1:1, move the box over your face and the picture is cut to a square without any scaling.",
+      },
+      {
+        title: "Removing private details from a screenshot",
+        body: "Before sharing a screenshot you want to cut away the browser tabs, notifications or a name in the corner. The Free ratio lets you draw any rectangle, and the saved file contains only the area you kept.",
+      },
+      {
+        title: "An exact region for a template",
+        body: "A banner slot or document template needs exactly 1200 × 630 pixels taken from a larger photo. Type the width and height, then place the box with the X and Y fields or the arrow keys so the important part is inside.",
+      },
+    ],
+    limits: [
+      "Works on one image at a time and accepts JPG, PNG, WebP, GIF, BMP and AVIF files up to 50 MB.",
+      "JPG, PNG and WebP keep their format; GIF, BMP and AVIF are saved as PNG, and animated GIFs keep only their first frame.",
+      "JPG and WebP are re-encoded at quality 95, while PNG output is lossless.",
+      "The crop area is limited to the image itself, so you cannot add extra canvas or padding around the picture.",
+      "EXIF orientation is applied before cropping, so coordinates refer to the photo as you see it, and metadata such as GPS location is not kept.",
+      "The result is named after the original with -cropped added, for example photo-cropped.jpg.",
+    ],
     faq: [
       {
         q: "How do I crop an image to a square?",
@@ -170,7 +236,7 @@ const content = {
       },
       {
         q: "Does cropping reduce image quality?",
-        a: "Cropping only removes the area outside the box; the remaining pixels are not scaled. The image is then saved again in its original JPG, PNG or WebP format.",
+        a: "Cropping only removes the area outside the box; the remaining pixels are not scaled. PNG output stays lossless, while JPG and WebP are saved again at a high quality of 95.",
       },
       {
         q: "Does the cropper work on my phone?",
@@ -214,10 +280,32 @@ const content = {
         "Conversion happens entirely in your browser, so there is no upload and no copy of your files on a server. Metadata such as EXIF and GPS location is removed from the converted images. You can convert up to 100 images per batch, download them all as a ZIP, or send them straight to Compress Image to reduce their size further.",
       ],
     },
+    useCases: [
+      {
+        title: "A mixed folder that needs one format",
+        body: "You collected WebP images from websites, PNG screenshots and a BMP from an old scanner, and a presentation or archive needs them all as JPG. Add the whole mix and convert it in one batch.",
+      },
+      {
+        title: "WebP copies for a website",
+        body: "Your site can serve WebP and you want WebP versions of existing JPG and PNG assets. Choose WebP, set the quality and download the batch as a ZIP; transparent PNG backgrounds are kept.",
+      },
+      {
+        title: "Turning an SVG logo into a PNG",
+        body: "A form, office app or social profile won't accept an SVG logo. Converting it to PNG gives you a regular image file with its transparent background intact.",
+      },
+    ],
+    limits: [
+      "Reads JPG, PNG, WebP, GIF, BMP, AVIF and SVG, plus HEIC/HEIF in browsers that can decode it (currently Safari), up to 100 files of 50 MB each.",
+      "The quality slider (10–100, default 92) applies to JPG and WebP; PNG is saved losslessly with the browser's default compression and has no size setting.",
+      "Images are drawn on a standard sRGB canvas, so embedded color profiles and all metadata are dropped, and very saturated colors in wide-gamut photos may look slightly less vivid.",
+      "Animated GIF and WebP files keep only their first frame, and SVGs without a set size are rendered at 1024 × 1024 pixels.",
+      "WebP output is disabled in browsers that cannot create WebP files.",
+      "Converted files keep their name with the new extension, so photo.png becomes photo.jpg.",
+    ],
     faq: [
       {
-        q: "Which formats can I convert to?",
-        a: "You can convert images to JPG, PNG or WebP.",
+        q: "Which output format should I choose?",
+        a: "JPG suits photos that must open everywhere, PNG suits graphics, screenshots and anything that needs lossless quality or transparency, and WebP gives the smallest files for websites. To see the actual sizes for your own image, try the Image Format Comparison tool.",
       },
       {
         q: "Can I convert HEIC photos from an iPhone?",
@@ -273,6 +361,28 @@ const content = {
         "The conversion happens in your browser, and metadata such as EXIF and GPS location is removed from the new files. If you need a different output format, open the full Convert Image tool. If the PNG files end up too large for your needs, you can send them straight to Compress Image without uploading them again.",
       ],
     },
+    useCases: [
+      {
+        title: "A working copy for repeated edits",
+        body: "You will mark up a JPG screenshot or photo several times and save it after each round. Converting it to PNG first means later saves don't stack new JPG artifacts on top of the existing ones.",
+      },
+      {
+        title: "An upload that only accepts PNG",
+        body: "Some print shops, merchandise makers, design templates and developer asset pipelines take PNG files only. Convert the JPG you have instead of re-exporting it from the original app.",
+      },
+      {
+        title: "A photo that shows sideways in some apps",
+        body: "A JPG looks upright on your phone but sideways elsewhere because its rotation is only stored as an EXIF tag. The PNG is saved with the rotation applied to the pixels, so it looks the same in every program.",
+      },
+    ],
+    limits: [
+      "PNG is lossless, so a converted photo is usually much larger than the JPG it came from, and the browser's PNG encoder offers no compression setting.",
+      "Existing JPG artifacts are kept exactly as they are; converting cannot restore detail or make the background transparent.",
+      "WebP, GIF, BMP, AVIF and SVG files can be added too and are saved as PNG.",
+      "EXIF orientation is applied to the pixels, and all metadata, including camera details and GPS location, is removed.",
+      "Files keep their name with a .png extension, with up to 100 images of 50 MB each per batch.",
+      "If the PNG is too large, Compress Image can reduce it to a 256-color palette, which suits graphics better than photos.",
+    ],
     faq: [
       {
         q: "Why is my PNG larger than the original JPG?",
@@ -291,8 +401,8 @@ const content = {
         a: "Yes. JPG and JPEG are two file extensions for the same format, and both can be converted to PNG here.",
       },
       {
-        q: "Is the JPG to PNG converter free?",
-        a: "Yes. It is free to use, with no sign-up, no watermark and no daily limit.",
+        q: "Will the PNG keep my photo's orientation?",
+        a: "Yes. The EXIF orientation is applied when the JPG is loaded, so the PNG is saved upright with the rotation built into the pixels. The orientation tag itself and other metadata are not copied.",
       },
     ],
   },
@@ -332,6 +442,27 @@ const content = {
         "The quality slider controls how much compression is applied: higher values keep more detail, lower values make smaller files. Conversion happens in your browser with no upload, and metadata such as EXIF and GPS location is removed. You can convert up to 100 PNG files per batch and download them all together as a ZIP.",
       ],
     },
+    useCases: [
+      {
+        title: "Screenshots too large to attach",
+        body: "A handful of full-screen PNG screenshots of photos or web pages can add up to tens of megabytes. As JPG they usually take far less space and attach to email or chat without trouble.",
+      },
+      {
+        title: "A transparent logo for a JPG-only system",
+        body: "Your logo is a transparent PNG, but an older CMS or a print order form only accepts JPG. Set the background color to match where the logo will sit, so its edges blend in instead of showing a white box.",
+      },
+      {
+        title: "Photos exported as PNG by mistake",
+        body: "A design app or phone editor saved your photos as PNG. Converting them to JPG at a quality around 85–92 gives files that are hard to tell apart at normal viewing size and open everywhere.",
+      },
+    ],
+    limits: [
+      "JPG cannot store transparency, so transparent and semi-transparent pixels are blended onto the chosen background color, white by default.",
+      "Quality ranges from 10 to 100 with a default of 92; lower values make smaller files but add visible blocky artifacts.",
+      "Sharp text, thin lines and flat-color graphics can show halos in JPG, and simple graphics may even end up larger than an optimized PNG.",
+      "WebP, GIF, BMP, AVIF and SVG files can be added as well, and animated images keep only their first frame.",
+      "Files keep their name with a .jpg extension, and metadata such as EXIF and GPS location is not carried over.",
+    ],
     faq: [
       {
         q: "What happens to a transparent background when converting PNG to JPG?",
@@ -350,8 +481,8 @@ const content = {
         a: "Yes. Add up to 100 PNG images per batch and download the results individually or as a ZIP.",
       },
       {
-        q: "Are my files uploaded?",
-        a: "No. Everything runs in your browser, and your files are never uploaded to or stored on Intera Tools servers.",
+        q: "Which background color should I choose?",
+        a: "Pick the color of the page or slide where the image will appear. Semi-transparent edges, such as smoothed logo outlines or soft shadows, are blended with that color, so a matching background avoids a visible fringe.",
       },
     ],
   },
@@ -391,6 +522,28 @@ const content = {
         "All conversion happens in your browser with no upload, and metadata such as EXIF and GPS location is removed from the results. You can convert up to 100 WebP files per batch and download them individually or together as a ZIP. If you need a PNG instead, for example to keep transparency, use the Convert Image tool and choose PNG as the output format.",
       ],
     },
+    useCases: [
+      {
+        title: "An image saved from a website won't open",
+        body: "You saved an image from a shop or news site and got a .webp file that your photo viewer, an older image editor or an office app won't open. Converting it to JPG makes it usable almost anywhere.",
+      },
+      {
+        title: "A form that rejects WebP",
+        body: "An older message board, application form or intranet accepts only JPG or PNG uploads. A JPG at the default quality goes through where the WebP file was refused.",
+      },
+      {
+        title: "WebP product images from a supplier",
+        body: "A supplier sent product photos as WebP, but your inventory system or print shop needs JPG. Convert the whole folder at once and download the results as a ZIP.",
+      },
+    ],
+    limits: [
+      "Animated WebP files are converted using only their first frame.",
+      "Transparent areas are filled with the chosen background color, white by default; use Convert Image with PNG output to keep transparency.",
+      "Converting a lossy WebP to JPG adds a second lossy step, so keep the quality high (the default is 92) to avoid visible new artifacts.",
+      "The JPG is often larger than the WebP, because JPG compresses less efficiently at a similar quality.",
+      "Opening WebP requires browser support, which all current major browsers have; very old browser versions may report that the image can't be opened.",
+      "Files keep their name with a .jpg extension, and EXIF and GPS metadata are not kept.",
+    ],
     faq: [
       {
         q: "Why can't I open WebP images?",
@@ -409,8 +562,8 @@ const content = {
         a: "JPG does not support transparency, so transparent areas are filled with a background color. White is used by default.",
       },
       {
-        q: "Is the WebP to JPG converter free?",
-        a: "Yes. It is free, with no sign-up, no watermark and no daily limit.",
+        q: "Why do images I save from websites end up as WebP?",
+        a: "Many websites deliver WebP to browsers that support it because the files are smaller, so saving an image often gives you a .webp file even when the site also has a JPG version. Converting it here gives you a JPG without hunting for another copy.",
       },
     ],
   },
@@ -439,7 +592,7 @@ const content = {
       },
       {
         title: "Quality preserved",
-        body: "PNG images stay lossless. JPGs are re-encoded at high quality, so the change is very hard to notice.",
+        body: "PNG images stay lossless. JPG and WebP files are re-encoded at high quality, so the change is very hard to notice.",
       },
     ],
     about: {
@@ -447,9 +600,31 @@ const content = {
       paragraphs: [
         "Photos from phones and cameras sometimes appear sideways or upside down because the device recorded its orientation in the EXIF data instead of rotating the pixels. Intera Tools applies that EXIF orientation automatically when the image is loaded, so you start from what the photo should look like and can rotate it further if needed. The saved result has the correct orientation built into the image itself.",
         "Flipping is useful for mirrored selfies, scanned documents or matching the direction of a design. You can rotate or flip every image in the batch with a single click, or adjust images individually when only a few are wrong. Rotating in 90° steps keeps the whole picture without cropping; the width and height simply swap where needed.",
-        "PNG files stay lossless when rotated. JPG images are re-encoded at high quality, which is not bit-for-bit lossless, but the difference is very hard to see. Processing happens locally in your browser with no upload, metadata such as EXIF and GPS location is removed, and you can process up to 100 images per batch.",
+        "PNG files stay lossless when rotated. JPG and WebP images are re-encoded at high quality, which is not bit-for-bit lossless, but the difference is very hard to see. Processing happens locally in your browser with no upload, metadata such as EXIF and GPS location is removed, and you can process up to 100 images per batch.",
       ],
     },
+    useCases: [
+      {
+        title: "Document photos taken sideways",
+        body: "You photographed receipts or a whiteboard and some shots came out sideways. Turn only those with the buttons under each image, then save the whole batch in one go.",
+      },
+      {
+        title: "A mirrored selfie",
+        body: "Some phones save front-camera photos mirrored, so text on a shirt or sign reads backwards. Flip horizontal makes the text readable again.",
+      },
+      {
+        title: "Album scans fed in upside down",
+        body: "A stack of prints went through the scanner upside down. Rotate 180° under All images fixes every file with one click.",
+      },
+    ],
+    limits: [
+      "Rotation works in 90° steps and flips are horizontal or vertical; free-angle rotation or straightening a tilted horizon is not available.",
+      "Accepts JPG, PNG, WebP, GIF, BMP, AVIF and SVG (HEIC only where the browser can open it); formats other than JPG, PNG and WebP are saved as PNG.",
+      "PNG stays lossless, while JPG and WebP are re-encoded at quality 95, so the result is not bit-for-bit identical.",
+      "EXIF orientation is applied when an image is loaded, and all metadata, including GPS location, is removed from the saved files.",
+      "Saving needs at least one change; to bake in the orientation of a photo that already looks upright here, re-save it with Convert Image instead.",
+      "Files are saved with -rotated added to the name, with up to 100 images of 50 MB each per batch.",
+    ],
     faq: [
       {
         q: "Why does my photo appear sideways?",
@@ -498,7 +673,7 @@ const content = {
       },
       {
         title: "One setup, whole batch",
-        body: "The same settings are applied to every image in the batch, and each file keeps its original format.",
+        body: "The same settings are applied to every image in the batch, and JPG, PNG and WebP files keep their original format.",
       },
     ],
     about: {
@@ -509,6 +684,28 @@ const content = {
         "Because the size is relative to each image, the watermark keeps the same proportions across photos with different dimensions. Everything is processed in your browser, so neither your photos nor your logo are uploaded to Intera Tools servers, and metadata such as EXIF and GPS location is removed from the results.",
       ],
     },
+    useCases: [
+      {
+        title: "Proofs for a client",
+        body: "A photographer sends preview images before the final delivery. A semi-transparent name tiled across each photo makes the proofs hard to use as finished pictures.",
+      },
+      {
+        title: "A logo on social and blog images",
+        body: "A small business adds its logo to the bottom-right corner of every post image. Because the size is relative to each picture, the logo looks the same on square and landscape photos.",
+      },
+      {
+        title: "Marking a copy of an ID",
+        body: "Before sending a copy of an ID card or passport to a landlord or service, add text such as “For rental application only” across it, so the copy is harder to reuse for something else.",
+      },
+    ],
+    limits: [
+      "Photos can be JPG, PNG, WebP, GIF, BMP or AVIF, while the logo can be any image your browser opens, including SVG.",
+      "JPG, PNG and WebP keep their format and GIF, BMP and AVIF are saved as PNG; JPG and WebP are re-encoded at quality 92.",
+      "Text size is a percentage of each image's shorter side and logo width a percentage of the image width, so the mark scales with every photo.",
+      "Text is drawn with the fonts available in your browser, so the exact typeface can differ slightly between devices.",
+      "The watermark becomes part of the pixels and cannot be removed from the saved file later, so keep your originals.",
+      "Results are named with -watermarked added, and metadata such as EXIF and GPS location is removed.",
+    ],
     faq: [
       {
         q: "Can I add my logo as a watermark?",
@@ -529,6 +726,87 @@ const content = {
       {
         q: "Are my photos uploaded?",
         a: "No. Watermarks are applied in your browser, and your images are never uploaded to or stored on Intera Tools servers.",
+      },
+    ],
+  },
+
+  "image-format-comparison": {
+    name: "Image Format Comparison",
+    short: "Compare JPG, PNG and WebP sizes for one image",
+    metaTitle: "JPG vs PNG vs WebP – Compare Image Format Sizes",
+    metaDescription:
+      "Encode one image as JPG, PNG, PNG-8 and WebP in your browser and compare file size, transparency and quality side by side. Free, private, nothing uploaded.",
+    h1: "Compare Image Formats: JPG vs PNG vs WebP",
+    lead: "See which format makes your image smallest without visible damage. One image is encoded as JPG, PNG, PNG-8 and WebP right in your browser, so you can compare sizes and quality side by side.",
+    steps: [
+      "Add one image of up to 50 MB by dropping it onto the page or choosing it from your device.",
+      "Set the quality for JPG and WebP, then compare each version's size, its difference from the original and whether transparency is kept.",
+      "Check the versions side by side and download the one that suits your use.",
+    ],
+    features: [
+      {
+        title: "Four encodings at once",
+        body: "JPG, lossless PNG, 256-color PNG-8 and WebP are all made from the same decoded pixels, so the comparison is fair.",
+      },
+      {
+        title: "Numbers you can act on",
+        body: "Each version shows its file size, how much smaller or larger it is than your original, and whether transparency survives.",
+      },
+      {
+        title: "See before you choose",
+        body: "A side-by-side view lets you check edges, text and gradients, then download whichever version works best.",
+      },
+    ],
+    about: {
+      title: "How to read the comparison",
+      paragraphs: [
+        "Every version is encoded from the same decoded image, so differences in size come from the format and its settings alone. The percentage compares each result with the file you added, which tells you at a glance whether switching formats saves anything. The transparency indicator shows whether see-through areas are kept: PNG, PNG-8 and WebP can store transparency, while JPG fills it with white. If your image has no transparent pixels, you can ignore that and focus on size and appearance.",
+        "File size alone doesn't decide the winner, so compare the versions at the size the image will actually be shown. At lower quality settings JPG shows blocky patches and halos around sharp edges and text. PNG-8 limits the image to 256 colors: logos, icons and screenshots often look identical, but photos and smooth gradients can show banding. Lossless PNG keeps every pixel and is usually the largest option for photos. WebP often gives the smallest file at a similar quality and also keeps transparency, but some older software still can't open it.",
+        "The sizes reflect the encoders built into the browser you are using. Chrome, Firefox and Safari can produce different sizes from the same setting, and dedicated tools such as mozjpeg, cwebp or PNG optimizers can often make the same image smaller. The lossless PNG here uses the browser's default compression with no level setting, so it can come out larger than an original PNG that was already optimized; that doesn't mean PNG is the wrong format for the image. Treat the results as a fair comparison between formats on your device, not as the smallest size each format could ever reach.",
+      ],
+    },
+    useCases: [
+      {
+        title: "Choosing a format for a website image",
+        body: "Before publishing a large banner or product photo, check how much WebP saves over JPG at the same quality setting and whether you can see any difference, then download the version you will use.",
+      },
+      {
+        title: "A logo or icon with transparency",
+        body: "Compare lossless PNG, PNG-8 and WebP for a logo to see whether 256 colors are enough and which format keeps the transparent edges clean at the smallest size.",
+      },
+      {
+        title: "Getting under an upload limit",
+        body: "A portal accepts images only up to a certain size. Lower the quality step by step and see which format drops below the limit first while the image still looks acceptable.",
+      },
+    ],
+    limits: [
+      "One image at a time, up to 50 MB.",
+      "The quality slider applies to JPG and WebP only; PNG is lossless, and PNG-8 uses a palette of up to 256 colors made by the same quantizer as Compress Image.",
+      "The lossless PNG is re-encoded by the browser without a compression level setting, so it is often larger than an original that was already optimized.",
+      "JPG fills transparent areas with white, while PNG, PNG-8 and WebP keep transparency.",
+      "If your browser cannot create WebP files, as with some Safari versions, WebP is shown as unsupported.",
+      "No version keeps the original metadata, and sizes depend on your browser's encoders, so other tools can produce different results.",
+    ],
+    faq: [
+      {
+        q: "Which format is best for photos?",
+        a: "For photos, WebP usually produces the smallest file at a similar visual quality, while JPG is the safest choice when the image must open everywhere. Lossless PNG is rarely worth it for photos because the files get large. Results vary from image to image, which is exactly what the comparison shows.",
+      },
+      {
+        q: "Why is the PNG larger than my original PNG?",
+        a: "Your original may have been optimized with a dedicated tool or saved with a color palette. The browser writes a lossless PNG without that extra optimization, so it can come out larger. Look at the PNG-8 result, or use Compress Image to shrink a PNG.",
+      },
+      {
+        q: "Does PNG-8 keep transparency?",
+        a: "Yes. PNG-8 reduces the image to at most 256 colors but keeps transparent areas, the same way Compress Image handles PNG files.",
+      },
+      {
+        q: "Why is WebP shown as unsupported?",
+        a: "Your browser cannot create WebP files, which happens in some browsers such as certain Safari versions. Open the page in a current version of Chrome, Edge or Firefox to include WebP in the comparison.",
+      },
+      {
+        q: "Is my image uploaded?",
+        a: "No. All versions are encoded in your browser, and the image is never uploaded to or stored on Intera Tools servers.",
       },
     ],
   },

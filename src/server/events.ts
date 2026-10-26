@@ -3,6 +3,7 @@
 
 const EVENTS = new Set([
   "tool_view",
+  "guide_view",
   "files_added",
   "files_rejected",
   "process_start",

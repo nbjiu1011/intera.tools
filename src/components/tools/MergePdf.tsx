@@ -73,7 +73,7 @@ export default function MergePdf() {
                   sortable.active ? "" : "cursor-grab"
                 }`}
               >
-                <span className="bg-brand-gradient absolute top-2 left-2 z-10 grid size-7 place-items-center rounded-full text-xs font-bold text-white shadow">
+                <span className="bg-brand-gradient absolute top-2 left-2 z-10 grid size-7 place-items-center rounded-full text-xs font-bold shadow">
                   {index + 1}
                 </span>
                 <button

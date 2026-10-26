@@ -1,6 +1,9 @@
 import type { Locale } from "@/i18n/config";
 
 export type ToolCategory = "image" | "pdf" | "everyday";
+/** Navigation group (Tools menu, catalog, footer). Converters collects every format-conversion tool. */
+export type ToolSection = "image" | "pdf" | "converters" | "everyday";
+export const toolSections: ToolSection[] = ["image", "pdf", "converters", "everyday"];
 export type ToolTag = "convert" | "edit" | "optimize" | "organize";
 /** Visual accent used for the tool's icon tile. */
 export type ToolAccent = "blue" | "red" | "purple" | "orange" | "cyan" | "green" | "pink" | "indigo" | "teal" | "amber";
@@ -21,7 +24,8 @@ export type ToolSlug =
   | "organize-pdf"
   | "jpg-to-pdf"
   | "pdf-to-jpg"
-  | "qr-code-generator";
+  | "qr-code-generator"
+  | "image-format-comparison";
 
 export type ToolIconName =
   | "compress"
@@ -36,11 +40,13 @@ export type ToolIconName =
   | "organize"
   | "imageToPdf"
   | "pdfToImage"
-  | "qr";
+  | "qr"
+  | "compare";
 
 export type ToolDef = {
   slug: ToolSlug;
   category: ToolCategory;
+  section: ToolSection;
   tags: ToolTag[];
   icon: ToolIconName;
   accent: ToolAccent;
@@ -58,7 +64,8 @@ export type ToolDef = {
     | "organize-pdf"
     | "jpg-to-pdf"
     | "pdf-to-jpg"
-    | "qr-code-generator";
+    | "qr-code-generator"
+    | "image-format-comparison";
   /** Preset passed to the workspace (e.g. target format for conversion variants). */
   preset?: { to?: "jpg" | "png" | "webp" };
   /** Extra search terms per locale, matched by the tool search. */
@@ -71,6 +78,7 @@ export const tools: ToolDef[] = [
   {
     slug: "compress-image",
     category: "image",
+    section: "image",
     tags: ["optimize"],
     icon: "compress",
     accent: "blue",
@@ -85,6 +93,7 @@ export const tools: ToolDef[] = [
   {
     slug: "resize-image",
     category: "image",
+    section: "image",
     tags: ["edit"],
     icon: "resize",
     accent: "purple",
@@ -99,6 +108,7 @@ export const tools: ToolDef[] = [
   {
     slug: "crop-image",
     category: "image",
+    section: "image",
     tags: ["edit"],
     icon: "crop",
     accent: "pink",
@@ -112,6 +122,7 @@ export const tools: ToolDef[] = [
   {
     slug: "convert-image",
     category: "image",
+    section: "converters",
     tags: ["convert"],
     icon: "convert",
     accent: "cyan",
@@ -125,6 +136,7 @@ export const tools: ToolDef[] = [
   {
     slug: "jpg-to-png",
     category: "image",
+    section: "converters",
     tags: ["convert"],
     icon: "convert",
     accent: "cyan",
@@ -137,6 +149,7 @@ export const tools: ToolDef[] = [
   {
     slug: "png-to-jpg",
     category: "image",
+    section: "converters",
     tags: ["convert"],
     icon: "convert",
     accent: "teal",
@@ -148,6 +161,7 @@ export const tools: ToolDef[] = [
   {
     slug: "webp-to-jpg",
     category: "image",
+    section: "converters",
     tags: ["convert"],
     icon: "convert",
     accent: "indigo",
@@ -159,6 +173,7 @@ export const tools: ToolDef[] = [
   {
     slug: "rotate-image",
     category: "image",
+    section: "image",
     tags: ["edit"],
     icon: "rotate",
     accent: "green",
@@ -172,6 +187,7 @@ export const tools: ToolDef[] = [
   {
     slug: "watermark-image",
     category: "image",
+    section: "image",
     tags: ["edit"],
     icon: "watermark",
     accent: "amber",
@@ -185,6 +201,7 @@ export const tools: ToolDef[] = [
   {
     slug: "merge-pdf",
     category: "pdf",
+    section: "pdf",
     tags: ["organize"],
     icon: "merge",
     accent: "red",
@@ -199,6 +216,7 @@ export const tools: ToolDef[] = [
   {
     slug: "split-pdf",
     category: "pdf",
+    section: "pdf",
     tags: ["organize"],
     icon: "split",
     accent: "orange",
@@ -212,6 +230,7 @@ export const tools: ToolDef[] = [
   {
     slug: "rotate-pdf",
     category: "pdf",
+    section: "pdf",
     tags: ["edit"],
     icon: "rotatePdf",
     accent: "green",
@@ -226,6 +245,7 @@ export const tools: ToolDef[] = [
   {
     slug: "organize-pdf",
     category: "pdf",
+    section: "pdf",
     tags: ["organize", "edit"],
     icon: "organize",
     accent: "purple",
@@ -239,6 +259,7 @@ export const tools: ToolDef[] = [
   {
     slug: "jpg-to-pdf",
     category: "pdf",
+    section: "converters",
     tags: ["convert"],
     icon: "imageToPdf",
     accent: "orange",
@@ -253,6 +274,7 @@ export const tools: ToolDef[] = [
   {
     slug: "pdf-to-jpg",
     category: "pdf",
+    section: "converters",
     tags: ["convert"],
     icon: "pdfToImage",
     accent: "pink",
@@ -266,6 +288,7 @@ export const tools: ToolDef[] = [
   {
     slug: "qr-code-generator",
     category: "everyday",
+    section: "everyday",
     tags: [],
     icon: "qr",
     accent: "indigo",
@@ -276,6 +299,20 @@ export const tools: ToolDef[] = [
     },
     related: ["compress-image", "watermark-image", "jpg-to-pdf", "merge-pdf"],
     popular: true,
+  },
+  {
+    slug: "image-format-comparison",
+    category: "image",
+    section: "image",
+    tags: ["convert", "optimize"],
+    icon: "compare",
+    accent: "teal",
+    workspace: "image-format-comparison",
+    aliases: {
+      en: ["jpg vs png", "png vs webp", "webp vs jpg", "best image format", "format size test", "compare formats"],
+      ko: ["jpg png 비교", "webp 비교", "이미지 포맷 비교", "확장자 비교", "용량 비교", "어떤 포맷"],
+    },
+    related: ["convert-image", "compress-image", "resize-image", "webp-to-jpg"],
   },
 ];
 

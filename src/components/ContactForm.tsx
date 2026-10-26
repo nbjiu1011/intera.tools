@@ -81,7 +81,7 @@ export function ContactForm({ email }: { email: string }) {
         <button
           type="submit"
           disabled={status === "sending"}
-          className="bg-brand-gradient inline-flex h-12 items-center gap-2 rounded-full px-7 font-semibold text-white shadow-button transition hover:brightness-110 disabled:opacity-70"
+          className="bg-brand-gradient inline-flex h-12 items-center gap-2 rounded-lg px-7 font-semibold transition hover:brightness-110 disabled:opacity-70"
         >
           {status === "sending" ? <LoaderCircle className="size-5 animate-spin" /> : <Send className="size-4" />}
           {status === "sending" ? c.sending : c.send}

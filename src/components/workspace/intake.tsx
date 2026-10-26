@@ -1,6 +1,6 @@
 "use client";
 
-import { ClipboardPaste, FilePlus2, ImagePlus, Plus, ShieldCheck, Upload, X } from "lucide-react";
+import { ClipboardPaste, FilePlus2, ImagePlus, Plus, ShieldCheck, X } from "lucide-react";
 import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { useI18n } from "@/components/I18nProvider";
 import { format } from "@/i18n/format";
@@ -158,25 +158,21 @@ export function Dropzone({ config, onFiles }: { config: IntakeConfig; onFiles: (
     <div
       {...drop.handlers}
       aria-labelledby={titleId}
-      className={`relative overflow-hidden rounded-[1.75rem] border-2 border-dashed px-5 py-12 text-center transition sm:py-16 ${
+      className={`relative overflow-hidden rounded-2xl border-2 border-dashed px-5 py-12 text-center transition sm:py-16 ${
         drop.over
           ? "scale-[1.01] border-brand bg-brand/[.06]"
-          : "border-brand/30 bg-surface/80 hover:border-brand/55"
+          : "border-line-strong bg-muted/40 hover:border-ink"
       }`}
     >
       {picker.input}
-      <div aria-hidden className="pointer-events-none absolute -top-24 left-1/2 size-80 -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(79,123,255,.16),transparent_65%)]" />
-      <div className="relative mx-auto grid size-20 place-items-center rounded-[1.6rem] bg-brand/10 text-brand">
-        {config.kind === "image" ? <ImagePlus className="size-9" /> : <FilePlus2 className="size-9" />}
-        <span className="bg-brand-gradient absolute -right-2 -bottom-2 grid size-8 place-items-center rounded-full text-white shadow-button">
-          <Upload className="size-4" />
-        </span>
+      <div className="relative mx-auto grid size-16 place-items-center rounded-xl border border-line bg-bg text-ink">
+        {config.kind === "image" ? <ImagePlus className="size-8" strokeWidth={1.6} /> : <FilePlus2 className="size-8" strokeWidth={1.6} />}
       </div>
       <button
         id={titleId}
         type="button"
         onClick={picker.open}
-        className="bg-brand-gradient relative mt-7 inline-flex h-14 items-center gap-2.5 rounded-full px-8 text-[1.05rem] font-semibold text-white shadow-button transition hover:brightness-110 active:scale-[.98]"
+        className="bg-brand-gradient relative mt-6 inline-flex h-13 items-center gap-2.5 rounded-lg px-7 text-[1.02rem] font-semibold transition hover:brightness-110 active:scale-[.98]"
       >
         <Plus className="size-5" strokeWidth={2.5} />
         {label}
@@ -197,7 +193,7 @@ export function Dropzone({ config, onFiles }: { config: IntakeConfig; onFiles: (
             : format(d.limitsOne, { size: sizeLabel })}
         </span>
       </div>
-      <p className="relative mt-3 inline-flex items-center gap-1.5 rounded-full bg-success-soft px-3 py-1 text-xs font-medium text-success">
+      <p className="relative mt-3 inline-flex items-center gap-1.5 text-xs font-medium text-success">
         <ShieldCheck className="size-3.5" />
         {d.privacy}
       </p>

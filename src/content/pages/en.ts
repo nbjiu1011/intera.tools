@@ -11,7 +11,8 @@ const pages = {
       {
         title: "What Intera Tools is",
         paragraphs: [
-          "Intera Tools brings together small, focused tools for the file chores that come up again and again. You can compress, resize, crop, rotate and watermark images, and convert them between JPG, PNG and WebP. You can merge, split, rotate and organize PDFs (reorder or delete pages), turn JPG images into a PDF, and turn PDF pages into JPG images. There is also a QR code generator.",
+          "Intera Tools brings together small, focused tools for the file chores that come up again and again. You can compress, resize, crop, rotate and watermark images, convert them between JPG, PNG and WebP, and compare how large one image becomes in each format. You can merge, split, rotate and organize PDFs (reorder or delete pages), turn images into a PDF, and turn PDF pages into images. There is also a QR code generator.",
+          "Workflows chain several of these steps for common jobs — preparing product photos for a shop, sizing images for social media, turning photos into a PDF document and optimizing images for a website. Guides explain the background: which format to choose, how compression works, platform image sizes and how to fix common errors.",
           "The site is available in English and Korean, and every tool is free to use.",
         ],
       },
@@ -38,6 +39,21 @@ const pages = {
           "No sign-up: there are no accounts, logins or passwords.",
           "Accessible and works on any device: tools are designed to work on phones, tablets and computers with a modern browser.",
           "Honest about limits: because processing happens on your device, very large files depend on your device's available memory, and encrypted (password-protected) PDFs are not supported yet.",
+        ],
+      },
+      {
+        title: "How guides are written",
+        paragraphs: [
+          "Guides are written for specific tasks and checked against how the tools actually behave — the limits, file names and messages described are the ones you will see. Facts about other services, such as attachment limits or platform image sizes, are checked against the providers' own documentation where it is available, and we say so when sources disagree. Numbers we present as measurements come from tests we ran ourselves, with the method described in the guide.",
+          "Platforms change their rules over time. Each guide shows the date it was last updated; if you spot something out of date, please tell us.",
+        ],
+      },
+      {
+        title: "Update history",
+        paragraphs: ["Major changes to the service:"],
+        bullets: [
+          "26 October 2026 — Intera 2.0: workflows (e-commerce images, social media images, photos to PDF, web image optimization), a guides section, the Image Format Comparison tool, saved favorites and workflow presets, and a redesigned, simpler interface.",
+          "16 October 2026 — Launch with 16 image, PDF and QR code tools in English and Korean.",
         ],
       },
       {
@@ -92,12 +108,14 @@ const pages = {
       {
         title: "Cookies and local storage",
         paragraphs: [
-          "Intera Tools itself stores only two small pieces of information in your browser. They are functional settings that make the site work the way you set it, and they are not used for tracking. You can clear them at any time in your browser settings; the site will then use its default theme and language. Advertising cookies are described in the next section.",
-          "The two items are:",
+          "Intera Tools itself stores only a few small preferences in your browser. They make the site work the way you set it, stay on your device, are never sent to us and are not used for tracking. You can clear them at any time in your browser settings; the site then falls back to its defaults. Advertising cookies are described in the next section.",
+          "The items are:",
         ],
         bullets: [
           "Theme preference (light or dark), saved in your browser's localStorage.",
           "Language choice, saved in a first-party cookie named tn_locale that lasts one year.",
+          "Recently used tools and workflows and your favorites, saved in localStorage so they can be shown on the home page.",
+          "Workflow settings and any presets you save (for example sizes, formats and file-name patterns), saved in localStorage. Files and their contents are never stored.",
         ],
       },
       {

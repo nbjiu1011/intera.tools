@@ -90,7 +90,7 @@ export default function JpgToPdf() {
                 {...sortable.itemProps(index)}
                 className={`relative rounded-2xl transition select-none ${st.dragging ? "scale-95 opacity-40" : ""} ${st.target ? "ring-4 ring-brand/30" : ""} ${sortable.active ? "" : "cursor-grab"}`}
               >
-                <span className="bg-brand-gradient absolute top-2 left-2 z-10 grid size-7 place-items-center rounded-full text-xs font-bold text-white shadow">
+                <span className="bg-brand-gradient absolute top-2 left-2 z-10 grid size-7 place-items-center rounded-full text-xs font-bold shadow">
                   {index + 1}
                 </span>
                 <ImageThumb

@@ -84,7 +84,12 @@ export function allPages(doc: PDFDocumentType, source = 0): PageRef[] {
 /** Parse "1-3, 5, 8-" style ranges (1-based, inclusive) into zero-based index groups. */
 export function parseRanges(input: string, pageCount: number): number[][] | null {
   const groups: number[][] = [];
-  const parts = input.split(/[,;\s]+/).map((p) => p.trim()).filter(Boolean);
+  // "1 - 3" means 1-3: join dashes to their numbers before splitting on spaces.
+  const parts = input
+    .replace(/\s*([-–~])\s*/g, "$1")
+    .split(/[,;\s]+/)
+    .map((p) => p.trim())
+    .filter(Boolean);
   if (!parts.length) return null;
   for (const part of parts) {
     const m = /^(\d+)?\s*[-–~]\s*(\d+)?$|^(\d+)$/.exec(part);

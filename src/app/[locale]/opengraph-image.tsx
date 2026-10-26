@@ -15,8 +15,8 @@ export default async function Image({ params }: { params: Promise<{ locale: stri
   const dict = getDictionary(isLocale(raw) ? raw : "en");
   const h = dict.home;
   return renderOg({
-    title: `${h.titleLine1} ${h.titleLine2Before}${h.titleHighlight}${h.titleLine2After}`,
-    subtitle: h.subtitle,
+    title: h.title,
+    subtitle: dict.meta.siteDescription,
     pills: [dict.tool.badgeFree, dict.tool.badgeNoSignup, dict.tool.badgeLocal],
   });
 }

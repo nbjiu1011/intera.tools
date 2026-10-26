@@ -21,7 +21,7 @@ export function Stepper({ step }: { step: 1 | 2 | 3 }) {
           <li key={label} className="flex items-center gap-2" aria-current={active ? "step" : undefined}>
             <span
               className={`grid size-6 place-items-center rounded-full text-[11px] transition ${
-                done ? "bg-success text-white" : active ? "bg-brand-gradient text-white shadow-button" : "bg-sunken text-ink-3"
+                done ? "bg-success" : active ? "bg-brand-gradient" : "bg-sunken text-ink-3"
               }`}
             >
               {done ? <Check className="size-3.5" strokeWidth={3} /> : n}
@@ -98,7 +98,7 @@ export function WorkspaceFrame({
   }, []);
 
   return (
-    <div ref={cardRef} className="card relative overflow-hidden rounded-[1.75rem] animate-pop-in">
+    <div ref={cardRef} className="card relative overflow-hidden rounded-2xl animate-pop-in">
       <div className="grid lg:grid-cols-[minmax(0,1fr)_360px]">
         <section
           {...drop.handlers}
@@ -180,7 +180,7 @@ export function PrimaryButton({
       type="button"
       onClick={onClick}
       disabled={disabled}
-      className={`bg-brand-gradient inline-flex h-14 w-full items-center justify-center gap-2.5 rounded-2xl px-6 text-[1.02rem] font-semibold text-white shadow-button transition hover:brightness-110 active:scale-[.99] disabled:cursor-not-allowed disabled:opacity-50 disabled:shadow-none disabled:hover:brightness-100 ${className}`}
+      className={`bg-brand-gradient inline-flex h-14 w-full items-center justify-center gap-2.5 rounded-2xl px-6 text-[1.02rem] font-semibold transition hover:brightness-110 active:scale-[.99] disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:brightness-100 ${className}`}
     >
       {children}
       {icon}
@@ -204,7 +204,7 @@ export function ProcessingOverlay({
   return (
     <div className="absolute inset-0 z-20 grid place-items-center bg-surface/80 p-6 backdrop-blur-md" role="status" aria-live="polite">
       <div className="w-full max-w-sm text-center animate-pop-in">
-        <div className="bg-brand-gradient mx-auto grid size-16 place-items-center rounded-2xl text-white shadow-button">
+        <div className="bg-brand-gradient mx-auto grid size-16 place-items-center rounded-2xl">
           <LoaderCircle className="size-8 animate-spin" />
         </div>
         <p className="mt-5 text-lg font-bold text-ink">{dict.workspace.processing}</p>

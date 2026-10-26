@@ -1,7 +1,6 @@
 "use client";
 
 import { ArrowRight } from "lucide-react";
-import type { ToolSlug } from "@/lib/tools";
 import { PrimaryButton, ProcessingOverlay, Stepper, WorkspaceFrame } from "./frame";
 import { Dropzone, RejectionNotice, useFileIntake, type IntakeConfig } from "./intake";
 import { useJob } from "./job";
@@ -29,7 +28,7 @@ export function ToolShell({
   zipName,
   hideToolbar,
 }: {
-  slug: ToolSlug;
+  slug: string;
   config: IntakeConfig;
   intake: ReturnType<typeof useFileIntake>;
   job: ReturnType<typeof useJob>;

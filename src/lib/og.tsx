@@ -1,6 +1,7 @@
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { ImageResponse } from "next/og";
+import { __iconData as columns2 } from "lucide-react/dist/esm/icons/columns-2.mjs";
 import { __iconData as combine } from "lucide-react/dist/esm/icons/combine.mjs";
 import { __iconData as crop } from "lucide-react/dist/esm/icons/crop.mjs";
 import { __iconData as fileImage } from "lucide-react/dist/esm/icons/file-image.mjs";
@@ -14,7 +15,6 @@ import { __iconData as rotateCwSquare } from "lucide-react/dist/esm/icons/rotate
 import { __iconData as scaling } from "lucide-react/dist/esm/icons/scaling.mjs";
 import { __iconData as scissors } from "lucide-react/dist/esm/icons/scissors.mjs";
 import { __iconData as stamp } from "lucide-react/dist/esm/icons/stamp.mjs";
-import { accentGlossy } from "@/components/ui/ToolIcon";
 import type { ToolAccent, ToolIconName } from "@/lib/tools";
 
 export const ogSize = { width: 1200, height: 630 };
@@ -34,6 +34,7 @@ const iconData: Record<ToolIconName, typeof crop> = {
   imageToPdf: imagePlus,
   pdfToImage: fileImage,
   qr: qrCode,
+  compare: columns2,
 };
 
 function IconSvg({ name, size }: { name: ToolIconName; size: number }) {
@@ -63,7 +64,6 @@ export async function renderOg({
   subtitle,
   pills,
   icon,
-  accent = "blue",
 }: {
   title: string;
   subtitle: string;
@@ -81,27 +81,26 @@ export async function renderOg({
           height: "100%",
           display: "flex",
           position: "relative",
-          background: "linear-gradient(135deg, #f7f8fd 0%, #eef1ff 55%, #f6ecff 100%)",
+          background: "#ffffff",
+          borderTop: "14px solid #0e0f12",
           fontFamily: "Pretendard",
           padding: "64px 72px",
         }}
       >
-        <div style={{ position: "absolute", right: -120, top: -140, width: 620, height: 620, borderRadius: 9999, background: "radial-gradient(circle, rgba(120,150,255,.45), rgba(120,150,255,0) 65%)" }} />
-        <div style={{ position: "absolute", left: -160, bottom: -220, width: 520, height: 520, borderRadius: 9999, background: "radial-gradient(circle, rgba(244,172,230,.5), rgba(244,172,230,0) 70%)" }} />
 
         <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between", flex: 1, position: "relative" }}>
           <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={logoSrc} width={52} height={52} alt="" />
             <div style={{ display: "flex", fontSize: 36, fontWeight: 700, letterSpacing: -1 }}>
-              <span style={{ color: "#0c1226" }}>Intera</span>
-              <span style={{ marginLeft: 10, color: "#6b6cfb" }}>Tools</span>
+              <span style={{ color: "#0e0f12" }}>Intera</span>
+              <span style={{ marginLeft: 10, color: "#2451ff" }}>Tools</span>
             </div>
           </div>
 
           <div style={{ display: "flex", flexDirection: "column", maxWidth: icon ? 720 : 960 }}>
-            <div style={{ fontSize: title.length > 28 ? 62 : 74, fontWeight: 700, color: "#0c1226", lineHeight: 1.08, letterSpacing: -2.5 }}>{title}</div>
-            <div style={{ marginTop: 22, fontSize: 30, fontWeight: 600, color: "#4a5370", lineHeight: 1.35 }}>{subtitle}</div>
+            <div style={{ fontSize: title.length > 28 ? 62 : 74, fontWeight: 700, color: "#0e0f12", lineHeight: 1.08, letterSpacing: -2.5 }}>{title}</div>
+            <div style={{ marginTop: 22, fontSize: 30, fontWeight: 600, color: "#4a4d57", lineHeight: 1.35 }}>{subtitle}</div>
           </div>
 
           <div style={{ display: "flex", gap: 14 }}>
@@ -111,12 +110,12 @@ export async function renderOg({
                 style={{
                   display: "flex",
                   padding: "12px 24px",
-                  borderRadius: 9999,
+                  borderRadius: 10,
                   fontSize: 24,
                   fontWeight: 600,
-                  color: i === 0 ? "#ffffff" : "#3b4466",
-                  background: i === 0 ? "linear-gradient(120deg, #4f7bff, #8b5cf6)" : "rgba(255,255,255,.85)",
-                  border: i === 0 ? "none" : "1px solid rgba(20,30,70,.1)",
+                  color: i === 0 ? "#ffffff" : "#0e0f12",
+                  background: i === 0 ? "#2451ff" : "#ffffff",
+                  border: i === 0 ? "2px solid #2451ff" : "2px solid #e6e6e9",
                 }}
               >
                 {p}
@@ -134,10 +133,8 @@ export async function renderOg({
                 justifyContent: "center",
                 width: 260,
                 height: 260,
-                borderRadius: 72,
-                background: accentGlossy[accent],
-                boxShadow: "0 40px 80px -30px rgba(40,50,140,.6)",
-                transform: "rotate(-8deg)",
+                borderRadius: 36,
+                background: "#0e0f12",
               }}
             >
               <IconSvg name={icon} size={130} />

@@ -7,71 +7,69 @@
    Light theme is the default; [data-theme="dark"] on <html> swaps the palette.
    --------------------------------------------------------------------------- */
 :root {
-  --brand-blue: #4f7bff;
-  --brand-purple: #8b5cf6;
-  --brand-gradient: linear-gradient(120deg, #4f7bff 0%, #6b6cfb 45%, #8b5cf6 100%);
-  --brand-gradient-text: linear-gradient(100deg, #3f8cff 0%, #5b7cff 35%, #8b5cf6 75%, #b05cf6 100%);
+  /* Swiss / minimal: one strong accent on a neutral, hairline-ruled canvas.
+     The logo keeps the brand gradient; UI chrome uses the solid accent. */
+  --brand-blue: #2451ff;
+  --brand-purple: #7b4dff;
+  --brand-soft: #eef1ff;
+  --brand-gradient: var(--brand-blue);
+  --brand-gradient-text: var(--brand-blue);
 
-  --bg: #f6f7fc;
+  --bg: #ffffff;
   --bg-elevated: #ffffff;
   --surface: #ffffff;
-  --surface-muted: #f3f5fb;
-  --surface-sunken: #eef1f9;
-  --border: rgba(20, 30, 70, 0.08);
-  --border-strong: rgba(20, 30, 70, 0.14);
-  --text: #0c1226;
-  --text-secondary: #4a5370;
-  --text-muted: #7a839c;
-  --ring: rgba(79, 123, 255, 0.45);
+  --surface-muted: #f6f6f7;
+  --surface-sunken: #f1f1f3;
+  --border: #e6e6e9;
+  --border-strong: #cfcfd5;
+  --text: #0e0f12;
+  --text-secondary: #4a4d57;
+  --text-muted: #73767f;
+  --ring: rgba(36, 81, 255, 0.45);
 
-  --shadow-card: 0 1px 2px rgba(16, 24, 64, 0.04), 0 12px 32px -14px rgba(36, 52, 120, 0.16);
-  --shadow-card-hover: 0 2px 4px rgba(16, 24, 64, 0.05), 0 22px 44px -18px rgba(52, 72, 170, 0.28);
-  --shadow-pop: 0 24px 60px -20px rgba(40, 52, 120, 0.35);
-  --shadow-button: 0 10px 24px -10px rgba(79, 123, 255, 0.75);
+  --shadow-card: none;
+  --shadow-card-hover: 0 1px 0 rgba(14, 15, 18, 0.04);
+  --shadow-pop: 0 18px 48px -18px rgba(14, 15, 18, 0.28);
+  --shadow-button: none;
 
-  --success: #16a34a;
-  --success-soft: #e8f8ee;
-  --danger: #e5484d;
-  --danger-soft: #fdecec;
-  --warning: #d97706;
-  --warning-soft: #fff4e2;
-
-  /* Soft decorative blobs behind the page */
-  --blob-pink: rgba(244, 172, 230, 0.45);
-  --blob-blue: rgba(130, 170, 255, 0.35);
-  --blob-violet: rgba(186, 160, 255, 0.35);
+  --success: #12803d;
+  --success-soft: #e9f6ee;
+  --danger: #d4282e;
+  --danger-soft: #fdeeee;
+  --warning: #b45c00;
+  --warning-soft: #fff4e5;
 
   color-scheme: light;
 }
 
 :root[data-theme="dark"] {
-  --bg: #0a0e1f;
-  --bg-elevated: #10162d;
-  --surface: #121a33;
-  --surface-muted: #161f3d;
-  --surface-sunken: #0d1329;
-  --border: rgba(170, 185, 255, 0.1);
-  --border-strong: rgba(170, 185, 255, 0.18);
-  --text: #eef1ff;
-  --text-secondary: #b3bad6;
-  --text-muted: #828aa8;
-  --ring: rgba(122, 152, 255, 0.55);
+  --brand-blue: #7d97ff;
+  --brand-purple: #a58bff;
+  --brand-soft: rgba(125, 151, 255, 0.12);
 
-  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.3), 0 14px 34px -16px rgba(0, 0, 0, 0.6);
-  --shadow-card-hover: 0 2px 6px rgba(0, 0, 0, 0.35), 0 24px 48px -18px rgba(40, 60, 160, 0.45);
-  --shadow-pop: 0 28px 70px -20px rgba(0, 0, 0, 0.7);
-  --shadow-button: 0 12px 28px -12px rgba(110, 120, 255, 0.8);
+  --bg: #0c0d10;
+  --bg-elevated: #121318;
+  --surface: #121318;
+  --surface-muted: #181a20;
+  --surface-sunken: #0f1014;
+  --border: #25272f;
+  --border-strong: #353844;
+  --text: #f1f2f5;
+  --text-secondary: #b2b5c0;
+  --text-muted: #868a96;
+  --ring: rgba(125, 151, 255, 0.55);
 
-  --success: #3ddc84;
-  --success-soft: rgba(61, 220, 132, 0.12);
+  --shadow-card: none;
+  --shadow-card-hover: none;
+  --shadow-pop: 0 24px 60px -20px rgba(0, 0, 0, 0.75);
+  --shadow-button: none;
+
+  --success: #4ad081;
+  --success-soft: rgba(74, 208, 129, 0.12);
   --danger: #ff6b70;
   --danger-soft: rgba(255, 107, 112, 0.12);
-  --warning: #fbbf24;
-  --warning-soft: rgba(251, 191, 36, 0.12);
-
-  --blob-pink: rgba(190, 80, 200, 0.18);
-  --blob-blue: rgba(70, 110, 255, 0.2);
-  --blob-violet: rgba(130, 90, 255, 0.18);
+  --warning: #f5b33d;
+  --warning-soft: rgba(245, 179, 61, 0.12);
 
   color-scheme: dark;
 }
@@ -89,6 +87,7 @@
   --color-ink-3: var(--text-muted);
   --color-brand: var(--brand-blue);
   --color-brand-purple: var(--brand-purple);
+  --color-brand-soft: var(--brand-soft);
   --color-success: var(--success);
   --color-success-soft: var(--success-soft);
   --color-danger: var(--danger);
@@ -97,25 +96,23 @@
   --color-warning-soft: var(--warning-soft);
 
   --font-sans: var(--font-inter), "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Segoe UI", "Malgun Gothic", sans-serif;
-  --font-hand: var(--font-caveat), "Comic Sans MS", cursive;
 
-  --radius-card: 1.25rem;
+  /* Tighter corners than Tailwind's defaults, applied everywhere. */
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.625rem;
+  --radius-2xl: 0.75rem;
+  --radius-3xl: 0.875rem;
+  --radius-card: 0.75rem;
   --shadow-card: var(--shadow-card);
   --shadow-card-hover: var(--shadow-card-hover);
   --shadow-pop: var(--shadow-pop);
   --shadow-button: var(--shadow-button);
 
-  --animate-float: float 7s ease-in-out infinite;
-  --animate-float-slow: float 9s ease-in-out infinite;
   --animate-fade-up: fade-up 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both;
   --animate-pop-in: pop-in 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.2) both;
   --animate-shimmer: shimmer 1.6s linear infinite;
 }
 
-@keyframes float {
-  0%, 100% { transform: translate3d(0, 0, 0) rotate(var(--r, 0deg)); }
-  50% { transform: translate3d(0, -12px, 0) rotate(var(--r, 0deg)); }
-}
 @keyframes fade-up {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: none; }
@@ -143,7 +140,6 @@ html {
   scroll-behavior: smooth;
 }
 html:lang(ko) body { word-break: keep-all; }
-html:lang(ko) .font-hand { font-family: var(--font-nanum-pen), var(--font-caveat), cursive; }
 
 body {
   background: var(--bg);
@@ -155,7 +151,7 @@ body {
   overflow-x: hidden;
 }
 
-::selection { background: rgba(79, 123, 255, 0.22); }
+::selection { background: rgba(36, 81, 255, 0.18); }
 
 :focus-visible {
   outline: 2px solid var(--brand-blue);
@@ -176,45 +172,10 @@ body {
    Reusable pieces that are awkward as utility strings
    --------------------------------------------------------------------------- */
 @layer components {
-  .page-backdrop {
-    position: absolute;
-    inset: 0 0 auto 0;
-    height: 1100px;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: 0;
-  }
-  .page-backdrop::before,
-  .page-backdrop::after {
-    content: "";
-    position: absolute;
-    border-radius: 9999px;
-    filter: blur(70px);
-  }
-  .page-backdrop::before {
-    width: 520px;
-    height: 520px;
-    left: -260px;
-    top: 260px;
-    background: radial-gradient(circle at 60% 40%, var(--blob-pink), transparent 70%);
-  }
-  .page-backdrop::after {
-    width: 760px;
-    height: 620px;
-    right: -220px;
-    top: -120px;
-    background: radial-gradient(circle at 40% 50%, var(--blob-blue), transparent 65%),
-      radial-gradient(circle at 70% 70%, var(--blob-violet), transparent 60%);
-  }
+  .text-gradient { color: var(--brand-blue); }
 
-  .text-gradient {
-    background: var(--brand-gradient-text);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-
-  .bg-brand-gradient { background: var(--brand-gradient); }
+  .bg-brand-gradient { background: var(--brand-blue); color: #fff; }
+  [data-theme="dark"] .bg-brand-gradient { color: #0c0d10; }
 
   .card {
     background: var(--surface);
@@ -224,9 +185,9 @@ body {
   }
 
   .glass {
-    background: color-mix(in oklab, var(--surface) 86%, transparent);
-    backdrop-filter: blur(18px) saturate(1.4);
-    -webkit-backdrop-filter: blur(18px) saturate(1.4);
+    background: color-mix(in oklab, var(--bg) 92%, transparent);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border: 1px solid var(--border);
   }
 
@@ -255,20 +216,20 @@ body {
   .checkerboard {
     background-color: #fff;
     background-image:
-      linear-gradient(45deg, #e9ecf5 25%, transparent 25%),
-      linear-gradient(-45deg, #e9ecf5 25%, transparent 25%),
-      linear-gradient(45deg, transparent 75%, #e9ecf5 75%),
-      linear-gradient(-45deg, transparent 75%, #e9ecf5 75%);
+      linear-gradient(45deg, #ececef 25%, transparent 25%),
+      linear-gradient(-45deg, #ececef 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, #ececef 75%),
+      linear-gradient(-45deg, transparent 75%, #ececef 75%);
     background-size: 16px 16px;
     background-position: 0 0, 0 8px, 8px -8px, -8px 0;
   }
   [data-theme="dark"] .checkerboard {
-    background-color: #1a2242;
+    background-color: #17181d;
     background-image:
-      linear-gradient(45deg, #222b50 25%, transparent 25%),
-      linear-gradient(-45deg, #222b50 25%, transparent 25%),
-      linear-gradient(45deg, transparent 75%, #222b50 75%),
-      linear-gradient(-45deg, transparent 75%, #222b50 75%);
+      linear-gradient(45deg, #22242b 25%, transparent 25%),
+      linear-gradient(-45deg, #22242b 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, #22242b 75%),
+      linear-gradient(-45deg, transparent 75%, #22242b 75%);
   }
 
   .scrollbar-none { scrollbar-width: none; }
@@ -281,7 +242,7 @@ body {
     width: 100%;
     height: 6px;
     border-radius: 9999px;
-    background: linear-gradient(90deg, var(--brand-blue), var(--brand-purple)) 0 / var(--fill, 50%) 100% no-repeat,
+    background: linear-gradient(90deg, var(--brand-blue), var(--brand-blue)) 0 / var(--fill, 50%) 100% no-repeat,
       var(--surface-sunken);
     outline-offset: 6px;
   }
@@ -292,7 +253,7 @@ body {
     border-radius: 9999px;
     background: #fff;
     border: 2px solid var(--brand-blue);
-    box-shadow: 0 4px 10px -2px rgba(79, 123, 255, 0.5);
+    box-shadow: none;
     cursor: pointer;
   }
   .range::-moz-range-thumb {
@@ -301,7 +262,7 @@ body {
     border-radius: 9999px;
     background: #fff;
     border: 2px solid var(--brand-blue);
-    box-shadow: 0 4px 10px -2px rgba(79, 123, 255, 0.5);
+    box-shadow: none;
     cursor: pointer;
   }
 

@@ -43,18 +43,18 @@ export function StaticPage({
   children?: React.ReactNode;
 }) {
   return (
-    <div className="mx-auto max-w-[1100px] px-4 pt-10 sm:px-6 lg:px-8">
-      <header className="mx-auto max-w-3xl text-center">
-        <h1 className="text-[2.2rem] leading-tight font-extrabold tracking-[-0.04em] text-ink sm:text-[3rem]">{content.h1}</h1>
+    <div className="mx-auto max-w-[1240px] px-4 pt-12 sm:px-6 lg:px-8">
+      <header className="max-w-3xl">
+        <h1 className="text-[2.4rem] leading-[1.05] font-bold tracking-[-0.045em] text-ink sm:text-[3.4rem]">{content.h1}</h1>
         <p className="mt-4 text-lg leading-relaxed text-ink-2">
           <Linkified text={content.lead} />
         </p>
         {showUpdated && <p className="mt-3 text-sm text-ink-3">{format(dict.legal.updated, { date: siteConfig.legalUpdated })}</p>}
       </header>
       {children}
-      <div className={`mt-12 grid gap-10 ${showToc ? "lg:grid-cols-[240px_minmax(0,1fr)]" : ""}`}>
+      <div className="mt-12 grid gap-10 border-t-2 border-ink pt-8 lg:grid-cols-12">
         {showToc && (
-          <nav aria-label={dict.legal.onThisPage} className="hidden lg:block">
+          <nav aria-label={dict.legal.onThisPage} className="hidden lg:col-span-3 lg:block">
             <div className="sticky top-28">
               <p className="text-xs font-semibold tracking-[0.12em] text-ink-3 uppercase">{dict.legal.onThisPage}</p>
               <ol className="mt-3 grid gap-1.5 text-sm">
@@ -69,7 +69,7 @@ export function StaticPage({
             </div>
           </nav>
         )}
-        <article className={`card prose-legal px-6 py-4 sm:px-10 sm:py-8 ${showToc ? "" : "mx-auto w-full max-w-3xl"}`}>
+        <article className={`prose-legal min-w-0 ${showToc ? "lg:col-span-8" : "lg:col-span-8 lg:col-start-3"}`}>
           {content.sections.map((s, i) => (
             <section key={i} id={`s${i + 1}`} className="scroll-mt-28">
               <h2 className={i === 0 ? "!mt-2" : ""}>{s.title}</h2>

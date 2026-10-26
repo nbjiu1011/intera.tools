@@ -6,7 +6,6 @@ import { useI18n } from "@/components/I18nProvider";
 import { format, formatBytes } from "@/i18n/format";
 import { throwIfAborted, uid, nextFrame, type AcceptSpec } from "@/lib/files";
 import type { ImageResult } from "@/lib/image/ops";
-import type { ToolSlug } from "@/lib/tools";
 import { PrimaryButton, ProcessingOverlay, Stepper, WorkspaceFrame } from "./frame";
 import { AddMoreButton, Dropzone, IMAGE_LIMITS, RejectionNotice, useFileIntake, type IntakeConfig } from "./intake";
 import { useJob } from "./job";
@@ -136,12 +135,14 @@ export function ImageBatchTool({
   renderFiles,
   multiple = true,
 }: {
-  slug: ToolSlug;
+  /** Tool or workflow slug (analytics, ZIP name, "continue with" targets). */
+  slug: string;
   accept: AcceptSpec;
   doneTitle: string;
   actionLabel: (count: number) => string;
   renderOptions: (items: ImageItem[]) => React.ReactNode;
-  process: (item: ImageItem, index: number) => Promise<ImageResult>;
+  /** One result per image, or several (e.g. one per export size). */
+  process: (item: ImageItem, index: number, all: ImageItem[]) => Promise<ImageResult | ImageResult[]>;
   /** A message that disables the main action (e.g. missing watermark text). */
   blocker?: (items: ImageItem[]) => string | null;
   showSavings?: boolean;
@@ -167,16 +168,18 @@ export function ImageBatchTool({
           ctx.progress(i, list[i].file.name);
           await nextFrame();
           try {
-            const r = await process(list[i], i);
-            ctx.output({
-              name: r.name,
-              blob: r.blob,
-              kind: "image",
-              originalSize: list[i].file.size,
-              width: r.width,
-              height: r.height,
-              keptOriginal: r.keptOriginal,
-            });
+            const results = await process(list[i], i, list);
+            for (const r of Array.isArray(results) ? results : [results]) {
+              ctx.output({
+                name: r.name,
+                blob: r.blob,
+                kind: "image",
+                originalSize: list[i].file.size,
+                width: r.width,
+                height: r.height,
+                keptOriginal: r.keptOriginal,
+              });
+            }
           } catch (error) {
             ctx.fail(list[i].file.name, error);
           }

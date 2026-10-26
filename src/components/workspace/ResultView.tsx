@@ -56,7 +56,7 @@ export function ResultView({
   onStartOver,
   onAdjust,
 }: {
-  tool: ToolSlug;
+  tool: string;
   title: string;
   outputs: Output[];
   failures: Failure[];
@@ -99,7 +99,7 @@ export function ResultView({
 
   const kind = outputs[0]?.kind;
   const targets = kind
-    ? continueTargets[kind].filter((t) => t !== tool && toolMap[t].workspace !== toolMap[tool].workspace).slice(0, 6)
+    ? continueTargets[kind].filter((t) => t !== tool && toolMap[t].workspace !== toolMap[tool as ToolSlug]?.workspace).slice(0, 6)
     : [];
   const continueWith = (target: ToolSlug) => {
     const files = outputs.map((o) => new File([o.blob], o.name, { type: o.blob.type }));
@@ -110,7 +110,7 @@ export function ResultView({
 
   if (!outputs.length) {
     return (
-      <div ref={rootRef} className="card animate-pop-in scroll-mt-28 rounded-[1.75rem] p-6 text-center sm:p-10">
+      <div ref={rootRef} className="card animate-pop-in scroll-mt-28 rounded-2xl p-6 text-center sm:p-10">
         <span className="mx-auto grid size-16 place-items-center rounded-full bg-danger-soft text-danger">
           <CircleAlert className="size-8" />
         </span>
@@ -132,7 +132,7 @@ export function ResultView({
               {w.adjust}
             </button>
           )}
-          <button type="button" onClick={onStartOver} className="bg-brand-gradient inline-flex h-12 items-center gap-2 rounded-full px-6 font-semibold text-white shadow-button">
+          <button type="button" onClick={onStartOver} className="bg-brand-gradient inline-flex h-12 items-center gap-2 rounded-lg px-6 font-semibold">
             <RotateCcw className="size-4" />
             {w.startOver}
           </button>
@@ -143,7 +143,7 @@ export function ResultView({
 
   return (
     <div ref={rootRef} className="animate-pop-in scroll-mt-28">
-      <div className="card overflow-hidden rounded-[1.75rem]">
+      <div className="card overflow-hidden rounded-2xl">
         <div className="relative px-5 pt-8 pb-6 text-center sm:px-10 sm:pt-10">
           <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-[radial-gradient(ellipse_at_top,rgba(52,211,153,.18),transparent_70%)]" />
           <div className="relative flex justify-center">
@@ -168,7 +168,7 @@ export function ResultView({
               type="button"
               onClick={downloadAll}
               disabled={zipping}
-              className="bg-brand-gradient inline-flex h-14 flex-1 items-center justify-center gap-2.5 rounded-2xl px-7 text-[1.05rem] font-semibold text-white shadow-button transition hover:brightness-110 active:scale-[.99] disabled:opacity-70 sm:flex-none"
+              className="bg-brand-gradient inline-flex h-14 flex-1 items-center justify-center gap-2.5 rounded-2xl px-7 text-[1.05rem] font-semibold transition hover:brightness-110 active:scale-[.99] disabled:opacity-70 sm:flex-none"
             >
               {zipping ? <LoaderCircle className="size-5 animate-spin" /> : <Download className="size-5" />}
               {zipping ? w.zipping : outputs.length > 1 ? w.downloadAll : w.download}

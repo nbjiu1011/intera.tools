@@ -126,7 +126,7 @@ export default function QrGenerator() {
   const canCopy = useClientValue(() => "ClipboardItem" in window && Boolean(navigator.clipboard?.write), false);
 
   return (
-    <div className="card overflow-hidden rounded-[1.75rem] animate-pop-in">
+    <div className="card overflow-hidden rounded-2xl animate-pop-in">
       <div className="grid lg:grid-cols-[minmax(0,1fr)_420px]">
         <div className="grid content-start gap-6 p-5 sm:p-8">
           <FieldGroup label={q.type}>
@@ -142,7 +142,7 @@ export default function QrGenerator() {
                     aria-selected={active}
                     onClick={() => setKind(k)}
                     className={`flex h-[72px] flex-col items-center justify-center gap-1.5 rounded-2xl border text-sm font-semibold transition ${
-                      active ? "border-brand bg-brand/[.07] text-brand shadow-[0_0_0_3px_rgba(79,123,255,.12)]" : "border-line text-ink-2 hover:border-line-strong hover:text-ink"
+                      active ? "border-brand bg-brand/[.07] text-brand shadow-[0_0_0_3px_rgba(36,81,255,.12)]" : "border-line text-ink-2 hover:border-line-strong hover:text-ink"
                     }`}
                   >
                     <Icon className="size-5" />
@@ -243,7 +243,7 @@ export default function QrGenerator() {
                 type="button"
                 disabled={!svg}
                 onClick={() => download("png")}
-                className="bg-brand-gradient inline-flex h-13 items-center justify-center gap-2 rounded-2xl font-semibold text-white shadow-button transition hover:brightness-110 disabled:opacity-50 disabled:shadow-none"
+                className="bg-brand-gradient inline-flex h-13 items-center justify-center gap-2 rounded-2xl font-semibold transition hover:brightness-110 disabled:opacity-50"
               >
                 <Download className="size-5" />
                 {q.downloadPng}

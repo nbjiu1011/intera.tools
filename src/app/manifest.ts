@@ -9,8 +9,8 @@ export default function manifest(): MetadataRoute.Manifest {
     description: "Free online tools for images, PDFs and everyday tasks. Private, no sign-up.",
     start_url: "/",
     display: "standalone",
-    background_color: "#f6f7fc",
-    theme_color: "#4f7bff",
+    background_color: "#ffffff",
+    theme_color: "#2451ff",
     icons: [{ src: "/icon.svg", sizes: "any", type: "image/svg+xml" }],
   };
 }

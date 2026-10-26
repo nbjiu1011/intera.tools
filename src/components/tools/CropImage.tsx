@@ -177,7 +177,7 @@ function CropStage({
               onKeyDown={onKeyDown}
               data-handle="move"
               onPointerDown={onPointerDown}
-              className="absolute cursor-move border-2 border-white shadow-[0_0_0_1px_rgba(79,123,255,.9)] focus-visible:outline-brand"
+              className="absolute cursor-move border-2 border-white shadow-[0_0_0_1px_rgba(36,81,255,.9)] focus-visible:outline-brand"
               style={box}
             >
               {/* rule of thirds */}

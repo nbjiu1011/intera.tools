@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import { toolMap, type ToolDef, type ToolSlug } from "@/lib/tools";
 
 function Loading() {
-  return <div className="card min-h-[420px] animate-pulse rounded-[1.75rem] bg-surface/70" />;
+  return <div className="card min-h-[420px] animate-pulse rounded-2xl bg-surface/70" />;
 }
 
 type WorkspaceProps = { slug: ToolSlug; preset?: ToolDef["preset"] };
@@ -25,6 +25,7 @@ const workspaces: Record<ToolDef["workspace"], React.ComponentType<WorkspaceProp
   "jpg-to-pdf": dynamic(() => import("./JpgToPdf"), { loading: Loading }),
   "pdf-to-jpg": dynamic(() => import("./PdfToJpg"), { loading: Loading }),
   "qr-code-generator": dynamic(() => import("./QrGenerator"), { loading: Loading }),
+  "image-format-comparison": dynamic(() => import("./ImageFormatComparison"), { loading: Loading }),
 };
 
 export function ToolWorkspace({ slug }: { slug: ToolSlug }) {

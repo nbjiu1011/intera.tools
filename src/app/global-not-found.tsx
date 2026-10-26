@@ -22,14 +22,13 @@ export default function GlobalNotFound() {
       </head>
       <body>
         <div className="relative isolate min-h-dvh">
-          <div className="page-backdrop" aria-hidden />
           <header className="mx-auto flex h-[76px] max-w-[1240px] items-center px-4 sm:px-6 lg:px-8">
             <Link href="/en" aria-label="Intera Tools home">
               <Logo />
             </Link>
           </header>
           <main className="relative mx-auto grid max-w-xl place-items-center px-4 py-20 text-center">
-            <span className="bg-brand-gradient grid size-20 place-items-center rounded-[1.6rem] text-white shadow-button">
+            <span className="bg-brand-gradient grid size-20 place-items-center rounded-2xl">
               <Compass className="size-10" />
             </span>
             <p className="text-gradient mt-6 text-6xl font-black tracking-tight">404</p>
@@ -39,7 +38,7 @@ export default function GlobalNotFound() {
               찾으시는 페이지가 없거나 다른 곳으로 옮겨졌습니다.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
-              <Link href="/en/tools" className="bg-brand-gradient inline-flex h-12 items-center gap-2 rounded-full px-6 font-semibold text-white shadow-button">
+              <Link href="/en/tools" className="bg-brand-gradient inline-flex h-12 items-center gap-2 rounded-lg px-6 font-semibold">
                 Browse all tools <ArrowRight className="size-4" />
               </Link>
               <Link href="/ko/tools" lang="ko" className="inline-flex h-12 items-center gap-2 rounded-full border border-line bg-surface px-6 font-semibold text-ink">

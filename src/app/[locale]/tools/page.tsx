@@ -19,14 +19,12 @@ export default async function ToolsPage({ params }: PageProps<"/[locale]/tools">
   if (!isLocale(locale)) notFound();
   const dict = getDictionary(locale);
   return (
-    <div className="mx-auto max-w-[1240px] px-4 pt-10 sm:px-6 lg:px-8">
-      <header className="mx-auto max-w-2xl text-center">
-        <h1 className="text-[2.4rem] leading-tight font-extrabold tracking-[-0.04em] text-ink sm:text-[3.2rem]">
-          <span className="text-gradient">{dict.toolsPage.title}</span>
-        </h1>
-        <p className="mt-3 text-lg text-ink-2">{dict.toolsPage.lead}</p>
+    <div className="mx-auto max-w-[1240px] px-4 pt-12 sm:px-6 lg:px-8">
+      <header className="max-w-3xl">
+        <h1 className="text-[2.6rem] leading-[1.02] font-bold tracking-[-0.045em] text-ink sm:text-[3.6rem]">{dict.toolsPage.title}</h1>
+        <p className="mt-4 text-lg leading-relaxed text-ink-2">{dict.toolsPage.lead}</p>
       </header>
-      <div className="mt-8">
+      <div className="mt-10">
         <Suspense>
           <ToolsExplorer />
         </Suspense>

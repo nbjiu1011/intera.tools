@@ -20,6 +20,7 @@ const errors = new Map();
 const devices = new Map();
 const locales = new Map();
 const jsErrors = new Map();
+const guideViews = new Map();
 const bump = (m, k, n = 1) => m.set(k, (m.get(k) ?? 0) + n);
 let total = 0;
 
@@ -33,6 +34,10 @@ for await (const line of createInterface({ input: createReadStream(file) })) {
   }
   if (Date.parse(e.ts) < since) continue;
   total++;
+  if (e.event === "guide_view") {
+    bump(guideViews, e.tool ?? "?");
+    continue;
+  }
   const t = e.tool ?? "-";
   if (!byTool.has(t)) byTool.set(t, { views: 0, starts: 0, success: 0, errors: 0, downloads: 0, cancels: 0, ms: [] });
   const s = byTool.get(t);
@@ -79,6 +84,7 @@ const top = (m, n = 15) => [...m.entries()].sort((a, b) => b[1] - a[1]).slice(0,
 for (const [title, rows] of [
   ["Errors and rejections", top(errors)],
   ["Script errors", top(jsErrors, 10)],
+  ["Guide views", top(guideViews, 20)],
   ["Devices", top(devices)],
   ["Locales", top(locales)],
 ]) {
