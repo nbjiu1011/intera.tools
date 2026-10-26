@@ -153,6 +153,11 @@ const guide: Record<Locale, GuideContent> = {
         a: "Often yes. Logos with a few flat colors and smooth edges fit well into a 256-color palette with transparency. Logos with gradients, glows or photographic elements may show banding, so compare the result with the original before replacing it.",
       },
     ],
+    sources: [
+      { label: "W3C – PNG Specification (Third Edition)", url: "https://www.w3.org/TR/png-3/" },
+      { label: "Google for Developers – WebP transparency and size figures", url: "https://developers.google.com/speed/webp" },
+      { label: "Amazon Seller Forums – Main image requirements (pure white background)", url: "https://sellercentral.amazon.com/seller-forums/discussions/t/13af96ea-6b07-4bf9-8dbe-a13292c2e3b1" },
+    ],
   },
 
   ko: {
@@ -305,6 +310,11 @@ const guide: Record<Locale, GuideContent> = {
         q: "로고에 PNG-8을 써도 괜찮을까요?",
         a: "대부분 괜찮습니다. 단색 몇 가지와 매끄러운 가장자리로 된 로고는 투명도가 있는 256색 팔레트에 잘 들어갑니다. 그라데이션, 빛 번짐 효과, 사진이 들어간 로고는 줄무늬가 생길 수 있으니 원본과 비교한 뒤 바꾸세요.",
       },
+    ],
+    sources: [
+      { label: "W3C – PNG 규격(3판)", url: "https://www.w3.org/TR/png-3/" },
+      { label: "Google 개발자 문서 – WebP 투명도와 용량 수치", url: "https://developers.google.com/speed/webp" },
+      { label: "Amazon 셀러 포럼 – 메인 이미지 기준(순백 배경)", url: "https://sellercentral.amazon.com/seller-forums/discussions/t/13af96ea-6b07-4bf9-8dbe-a13292c2e3b1" },
     ],
   },
 };

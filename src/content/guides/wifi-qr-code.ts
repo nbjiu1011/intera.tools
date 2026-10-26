@@ -52,7 +52,7 @@ const guide: Record<Locale, GuideContent> = {
       {
         type: "ul",
         items: [
-          "**iPhone and iPad:** the built-in Camera app has recognized Wi-Fi QR codes since iOS 11. Point the camera at the code and tap the notification to join.",
+          "**iPhone and iPad:** the built-in Camera app has recognized Wi-Fi QR codes since iOS 11. Point the camera at the code and tap the prompt that appears to join.",
           "**Android 10 and later:** Wi-Fi settings can scan a network QR code, usually from a QR icon next to the option for adding a network, and can show your current network as a QR code. Many camera apps and Google Lens also recognize Wi-Fi codes. Menu names vary by manufacturer.",
           "**Older Android phones:** need a QR scanner app that supports Wi-Fi codes.",
           "**Laptops:** generally can't join from a QR code, so print the network name and password in text as well for people who need to type them.",
@@ -146,6 +146,14 @@ const guide: Record<Locale, GuideContent> = {
         a: "No. The code is created in your browser, and the network name and password aren't sent to Intera Tools or anyone else.",
       },
     ],
+    sources: [
+      { label: "ZXing wiki: Barcode Contents (Wi-Fi network config)", url: "https://github.com/zxing/zxing/wiki/Barcode-Contents" },
+      { label: "Apple Support: Scan a QR code with your iPhone or iPad", url: "https://support.apple.com/en-us/102680" },
+      { label: "Android Help: Connect to Wi-Fi networks (share by QR code)", url: "https://support.google.com/android/answer/9075847" },
+      { label: "Android Open Source Project: Wi-Fi Easy Connect (Android 10)", url: "https://source.android.com/docs/core/connect/wifi-easy-connect" },
+      { label: "DENSO WAVE: QR Code error correction levels", url: "https://www.qrcode.com/en/about/error_correction.html" },
+      { label: "DENSO WAVE: QR Code quiet zone (margin)", url: "https://www.qrcode.com/en/howto/code.html" },
+    ],
   },
   ko: {
     title: "와이파이 QR 코드 만들기: 찍기만 하면 연결되는 손님용 QR",
@@ -197,7 +205,7 @@ const guide: Record<Locale, GuideContent> = {
       {
         type: "ul",
         items: [
-          "**아이폰·아이패드:** 기본 카메라 앱이 iOS 11부터 와이파이 QR 코드를 인식합니다. 카메라를 코드에 대고 나타나는 알림을 누르면 연결됩니다.",
+          "**아이폰·아이패드:** 기본 카메라 앱이 iOS 11부터 와이파이 QR 코드를 인식합니다. 카메라를 코드에 대고 화면에 나타나는 안내를 누르면 연결됩니다.",
           "**안드로이드 10 이상:** Wi-Fi 설정에서 네트워크 QR 코드를 스캔할 수 있습니다. 보통 네트워크 추가 항목 옆의 QR 아이콘을 누르면 되며, 현재 연결된 네트워크를 QR 코드로 보여 줄 수도 있습니다. 상당수 카메라 앱과 Google 렌즈도 와이파이 코드를 인식합니다. 메뉴 이름은 제조사마다 다릅니다.",
           "**구형 안드로이드 휴대폰:** 와이파이 코드를 지원하는 QR 스캐너 앱이 필요합니다.",
           "**노트북:** 대부분 QR 코드로 연결할 수 없으므로, 직접 입력해야 하는 사람을 위해 네트워크 이름과 비밀번호를 글자로도 적어 두세요.",
@@ -290,6 +298,14 @@ const guide: Record<Locale, GuideContent> = {
         q: "코드를 만들 때 와이파이 비밀번호가 어딘가로 전송되나요?",
         a: "아닙니다. 코드는 브라우저 안에서 만들어지며, 네트워크 이름과 비밀번호는 Intera Tools를 포함해 어디로도 전송되지 않습니다.",
       },
+    ],
+    sources: [
+      { label: "ZXing 위키: 바코드 내용 형식(Wi-Fi 설정)", url: "https://github.com/zxing/zxing/wiki/Barcode-Contents" },
+      { label: "Apple 지원: iPhone 또는 iPad로 QR 코드 스캔하기", url: "https://support.apple.com/en-us/102680" },
+      { label: "Android 고객센터: Wi-Fi 네트워크 연결(QR 코드로 공유)", url: "https://support.google.com/android/answer/9075847" },
+      { label: "Android 오픈소스 프로젝트: Wi-Fi Easy Connect(Android 10)", url: "https://source.android.com/docs/core/connect/wifi-easy-connect" },
+      { label: "DENSO WAVE: QR 코드 오류 복원 수준", url: "https://www.qrcode.com/en/about/error_correction.html" },
+      { label: "DENSO WAVE: QR 코드 여백(Quiet zone)", url: "https://www.qrcode.com/en/howto/code.html" },
     ],
   },
 };

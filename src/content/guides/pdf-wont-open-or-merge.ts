@@ -46,7 +46,7 @@ const guide: Record<Locale, GuideContent> = {
         type: "steps",
         items: [
           { title: "Go back to the source", body: "Export the PDF again from the app that created it (Word, a scanning app, accounting software) without a password, or ask the sender for an unprotected copy." },
-          { title: "Remove security in Acrobat", body: "In paid Adobe Acrobat (not the free Reader), choose All tools → Protect a PDF → Remove security. You need to enter a permissions password to remove it." },
+          { title: "Remove security in Acrobat", body: "In paid Adobe Acrobat (not the free Reader), open the document's security settings and remove the password protection. Menu names differ between Acrobat versions, and you need to enter the permissions password to remove it." },
           { title: "Print to a new PDF", body: "Open the file with its password in a viewer such as Chrome, then choose Print → Save as PDF (on Windows, Microsoft Print to PDF). This only works if the document allows printing. Links, bookmarks and form fields can be lost, so check the copy before deleting the original." },
         ],
       },
@@ -133,6 +133,10 @@ const guide: Record<Locale, GuideContent> = {
         a: "No. Merge, Split, Rotate and Organize copy pages into the new PDF without re-rendering them, so text stays text and images aren’t recompressed. Only PDF to JPG turns pages into pictures.",
       },
     ],
+    sources: [
+      { label: "Adobe Acrobat Help: Remove passwords from PDFs", url: "https://helpx.adobe.com/acrobat/desktop/protect-documents/protect-with-passwords/remove-passwords-from-pdfs.html" },
+      { label: "pdf-lib: encryption handling (README)", url: "https://github.com/Hopding/pdf-lib#encryption-handling" },
+    ],
   },
 
   ko: {
@@ -179,7 +183,7 @@ const guide: Record<Locale, GuideContent> = {
         type: "steps",
         items: [
           { title: "원본에서 다시 저장하기", body: "문서를 만든 프로그램(워드, 한글, 스캔 앱, 회계 프로그램 등)에서 비밀번호 없이 PDF로 다시 내보내거나, 보낸 사람에게 비밀번호가 없는 파일을 요청합니다." },
-          { title: "Acrobat에서 보안 제거하기", body: "유료 Adobe Acrobat(무료 Reader는 불가)에서 모든 도구 → PDF 보호 → 보안 제거를 선택합니다. 권한 비밀번호가 걸려 있다면 입력해야 제거됩니다." },
+          { title: "Acrobat에서 보안 제거하기", body: "유료 Adobe Acrobat(무료 Reader는 불가)에서 문서의 보안 설정을 열어 비밀번호 보호를 해제합니다. 메뉴 이름은 Acrobat 버전마다 다르며, 권한 비밀번호가 걸려 있다면 입력해야 해제됩니다." },
           { title: "새 PDF로 인쇄하기", body: "Chrome 같은 뷰어에서 비밀번호를 입력해 파일을 연 뒤 인쇄 → PDF로 저장(Windows는 Microsoft Print to PDF)을 고릅니다. 문서가 인쇄를 허용할 때만 가능하며, 링크·책갈피·입력 양식이 사라질 수 있으니 원본을 지우기 전에 결과를 확인하세요." },
         ],
       },
@@ -265,6 +269,10 @@ const guide: Record<Locale, GuideContent> = {
         q: "합치거나 나누면 페이지 화질이 떨어지나요?",
         a: "아니요. 합치기, 분할, 회전, 페이지 정리는 페이지를 다시 렌더링하지 않고 새 PDF로 그대로 복사하므로 글자는 글자로 남고 이미지도 다시 압축되지 않습니다. 페이지를 그림으로 바꾸는 도구는 PDF를 JPG로 변환뿐입니다.",
       },
+    ],
+    sources: [
+      { label: "Adobe Acrobat 도움말: PDF 비밀번호 제거", url: "https://helpx.adobe.com/acrobat/desktop/protect-documents/protect-with-passwords/remove-passwords-from-pdfs.html" },
+      { label: "pdf-lib: 암호화 문서 처리(README)", url: "https://github.com/Hopding/pdf-lib#encryption-handling" },
     ],
   },
 };

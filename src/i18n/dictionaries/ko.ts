@@ -230,6 +230,7 @@ export const ko: Dict = {
     tryTool: "도구 열기",
     tryWorkflow: "워크플로 열기",
     faq: "자주 묻는 질문",
+    sources: "참고 자료",
   },
   compare: {
     action: "형식 비교하기",
@@ -375,7 +376,7 @@ export const ko: Dict = {
     quality: "JPG / WebP 품질",
     pngColors: "PNG 색상 수",
     toWebp: "WebP로 변환",
-    toWebpHint: "WebP는 보통 JPG보다 25–35% 작습니다.",
+    toWebpHint: "Google 측정 기준, 비슷한 화질에서 WebP가 JPG보다 25–34% 작습니다.",
     webpUnsupported: "이 브라우저는 WebP 파일을 만들 수 없습니다.",
     metadataNote: "카메라 정보, GPS 위치 같은 메타데이터는 제거됩니다.",
   },

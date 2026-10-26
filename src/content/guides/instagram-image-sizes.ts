@@ -79,12 +79,12 @@ const guide: Record<Locale, GuideContent> = {
       { type: "h2", text: "Safe zones for Stories and Reels" },
       {
         type: "p",
-        text: "A 9:16 frame fills the screen, but Instagram draws on top of it: the progress bar, account name and close button at the top, and the reply field, caption and action buttons at the bottom. Instagram doesn't publish one official overlay map for regular posts. Meta's ad guidance for Stories, which is widely quoted, recommends keeping roughly the top and bottom 14% free of text and logos. On a 1920-pixel frame, that's about 250 pixels.",
+        text: "A 9:16 frame fills the screen, but Instagram draws on top of it: the progress bar, account name and close button at the top, and the reply field, caption and action buttons at the bottom. Instagram doesn't publish one official overlay map for regular posts. Meta's ad guidance for Instagram Stories, which is widely quoted, recommends keeping roughly the top 14% and bottom 35% free of text and logos (ads add a button at the bottom). On a 1920-pixel frame, the top 14% is about 270 pixels.",
       },
       {
         type: "ul",
         items: [
-          "Keep headlines, faces and logos in the middle of the frame, at least about 250 pixels from the top edge.",
+          "Keep headlines, faces and logos in the middle of the frame, at least about 270 pixels from the top edge.",
           "Leave more room at the bottom of Reels than of Stories. Reels show the caption, audio info and like, comment and share buttons there and along the right edge.",
           "A Reel's cover appears in the profile grid as a 3:4 crop of the frame's center, so put the title of a cover image in the middle.",
           "Overlay positions change between app versions and devices, so preview the Story or Reel on your phone before sharing it.",
@@ -104,7 +104,7 @@ const guide: Record<Locale, GuideContent> = {
           },
           {
             title: "Choose the ratio",
-            body: "Under **Aspect ratio**, choose **4:5** for a portrait post, **1:1** for a square post or **9:16** for a Story or Reel. The crop box jumps to the largest centered area with that shape.",
+            body: "Under **Aspect ratio**, choose **4:5** for a portrait post, **1:1** for a square post or **9:16** for a Story or Reel. The crop box jumps to a centered area with that shape, about 90% of the photo's width or height.",
           },
           {
             title: "Position the crop",
@@ -149,6 +149,11 @@ const guide: Record<Locale, GuideContent> = {
         q: "Are my photos uploaded when I crop or resize them on Intera Tools?",
         a: "No. Cropping and resizing run in your browser, and the files never leave your device. Because the image is re-encoded, the result also drops the original metadata, including GPS location.",
       },
+    ],
+    sources: [
+      { label: "Instagram Help Center – Photo resolution and aspect ratios", url: "https://help.instagram.com/1631821640426723" },
+      { label: "Meta Ads Guide – Instagram Stories image ads (safe zones)", url: "https://www.facebook.com/business/ads-guide/update/image/instagram-story" },
+      { label: "9to5Mac – Instagram adds 3:4 photo support (May 2025)", url: "https://9to5mac.com/2025/05/29/instagram-changes-standard-photo-aspect-ratio/" },
     ],
   },
   ko: {
@@ -228,12 +233,12 @@ const guide: Record<Locale, GuideContent> = {
       { type: "h2", text: "스토리·릴스의 안전 영역" },
       {
         type: "p",
-        text: "9:16 화면은 휴대폰 전체를 채우지만, 위에는 진행 표시줄·계정 이름·닫기 버튼이, 아래에는 답장 입력창·캡션·버튼이 겹칩니다. 일반 게시물용 공식 오버레이 영역은 따로 공개되어 있지 않습니다. 널리 인용되는 Meta의 스토리 광고 가이드는 위아래 약 14%를 글자와 로고 없이 비워 두라고 권장하며, 1920픽셀 화면에서는 약 250픽셀입니다.",
+        text: "9:16 화면은 휴대폰 전체를 채우지만, 위에는 진행 표시줄·계정 이름·닫기 버튼이, 아래에는 답장 입력창·캡션·버튼이 겹칩니다. 일반 게시물용 공식 오버레이 영역은 따로 공개되어 있지 않습니다. 널리 인용되는 Meta의 인스타그램 스토리 광고 가이드는 위쪽 약 14%, 아래쪽 약 35%를 글자와 로고 없이 비워 두라고 권장합니다(광고는 아래쪽에 버튼이 붙습니다). 1920픽셀 화면에서 위쪽 14%는 약 270픽셀입니다.",
       },
       {
         type: "ul",
         items: [
-          "제목, 얼굴, 로고는 화면 가운데에 두고, 위쪽 끝에서 최소 250픽셀 정도 떨어뜨리세요.",
+          "제목, 얼굴, 로고는 화면 가운데에 두고, 위쪽 끝에서 최소 270픽셀 정도 떨어뜨리세요.",
           "릴스는 스토리보다 아래쪽 여백을 더 넉넉히 두세요. 아래쪽과 오른쪽 가장자리에 캡션, 오디오 정보, 좋아요·댓글·공유 버튼이 표시됩니다.",
           "릴스 커버는 프로필 그리드에서 화면 가운데를 3:4로 자른 모양으로 보이므로, 커버 이미지의 제목은 가운데에 넣으세요.",
           "오버레이 위치는 앱 버전과 기기에 따라 달라지므로, 공유하기 전에 휴대폰에서 미리 확인하세요.",
@@ -253,7 +258,7 @@ const guide: Record<Locale, GuideContent> = {
           },
           {
             title: "비율 고르기",
-            body: "**비율**에서 세로형 게시물은 **4:5**, 정사각형은 **1:1**, 스토리·릴스는 **9:16**을 고릅니다. 자르기 영역이 해당 비율로 가능한 가장 큰 가운데 영역으로 바뀝니다.",
+            body: "**비율**에서 세로형 게시물은 **4:5**, 정사각형은 **1:1**, 스토리·릴스는 **9:16**을 고릅니다. 자르기 영역이 사진 너비나 높이의 약 90%를 차지하는 해당 비율의 가운데 영역으로 바뀝니다.",
           },
           {
             title: "자를 위치 맞추기",
@@ -298,6 +303,11 @@ const guide: Record<Locale, GuideContent> = {
         q: "Intera Tools에서 자르거나 크기를 바꾸면 사진이 업로드되나요?",
         a: "아닙니다. 자르기와 크기 조절은 브라우저 안에서 처리되어 파일이 기기 밖으로 나가지 않습니다. 이미지를 다시 인코딩하므로 결과물에는 GPS 위치를 포함한 원본 메타데이터도 빠집니다.",
       },
+    ],
+    sources: [
+      { label: "인스타그램 고객센터 – 사진 해상도와 비율", url: "https://help.instagram.com/1631821640426723" },
+      { label: "Meta 광고 가이드 – 인스타그램 스토리 이미지 광고(안전 영역)", url: "https://www.facebook.com/business/ads-guide/update/image/instagram-story" },
+      { label: "9to5Mac – 인스타그램 3:4 사진 지원 소식(2025년 5월)", url: "https://9to5mac.com/2025/05/29/instagram-changes-standard-photo-aspect-ratio/" },
     ],
   },
 };

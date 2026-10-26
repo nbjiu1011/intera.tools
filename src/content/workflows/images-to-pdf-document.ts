@@ -7,7 +7,7 @@ const content: Record<Locale, WorkflowContent> = {
     short: "Arrange, rotate and shrink photos into one compact PDF",
     metaTitle: "Photos to One PDF – Arrange, Rotate & Shrink",
     metaDescription:
-      "Combine photos of receipts, forms or pages into a single PDF: reorder and rotate them, choose A4 or Letter pages and shrink large photos to keep the PDF small. Free, private.",
+      "Combine photos of receipts, forms or pages into one PDF: reorder and rotate them, pick A4 or Letter pages and shrink large photos to keep the file small.",
     h1: "Photos to PDF document",
     lead: "Turn phone photos of receipts, forms, notes or signed pages into one tidy PDF — in the right order, the right way up, and small enough to email.",
     stepLabels: ["Add photos", "Arrange & rotate", "Build PDF", "Download"],

@@ -11,7 +11,7 @@ const guide: Record<Locale, GuideContent> = {
       "A catalogue looks professional when every product sits on the same canvas, at a similar scale, on the same background, and loads quickly. This guide covers the decisions that get you there: canvas shape and padding, what Amazon and Shopify actually ask for, which format and size to upload, how to name files, and how to process a whole shoot in one batch.",
     takeaways: [
       "Pick one canvas for the whole catalogue, usually a square, and pad products onto it rather than cropping them.",
-      "Amazon accepts 500–10,000 px on the longest side but prefers over 1,000 px per side for zoom; Shopify says 2048 × 2048 px usually displays best for square images.",
+      "Amazon accepts 500–10,000 px on the longest side but prefers over 1,000 px on the longest side for zoom; Shopify says 2048 × 2048 px usually displays best for square images.",
       "Upload JPG for photos unless you need transparency; check that a platform accepts WebP before using it.",
       "Use short, descriptive, lowercase file names such as linen-shirt-white-front.jpg, and keep your untouched originals.",
     ],
@@ -19,7 +19,7 @@ const guide: Record<Locale, GuideContent> = {
       { type: "h2", text: "Choose one canvas for the whole catalogue" },
       {
         type: "p",
-        text: "Shoppers compare products side by side in grids. When one photo is landscape, the next is portrait and a third shows the product tiny in the corner, the grid looks messy and products seem different in size even when they aren't. Shopify's own advice for collection pages is to use a consistent aspect ratio so images display at the same size, and Coupang resizes non-square uploads automatically. A **square** canvas is the shape that survives the most platforms and themes without unexpected cropping.",
+        text: "Shoppers compare products side by side in grids. When one photo is landscape, the next is portrait and a third shows the product tiny in the corner, the grid looks messy and products seem different in size even when they aren't. Shopify's own advice for collection pages is to use a consistent aspect ratio so images display at the same size, and Coupang may automatically resize images that aren't at its recommended square size. A **square** canvas is the shape that survives the most platforms and themes without unexpected cropping.",
       },
       {
         type: "p",
@@ -32,7 +32,7 @@ const guide: Record<Locale, GuideContent> = {
         caption: "From Amazon's seller guidance and Shopify's help centre; category style guides can add stricter rules",
         head: ["", "Amazon (main image)", "Shopify"],
         rows: [
-          ["Size", "500–10,000 px on the longest side; over 1,000 px per side preferred so shoppers can zoom", "2048 × 2048 px usually displays best for square images; up to 5000 × 5000 px (25 MP)"],
+          ["Size", "500–10,000 px on the longest side; over 1,000 px on the longest side preferred so shoppers can zoom", "2048 × 2048 px usually displays best for square images; up to 5000 × 5000 px (25 MP), under 20 MB"],
           ["Background", "Pure white (RGB 255, 255, 255); product fills about 85% of the frame", "No rule; consistent ratio recommended"],
           ["Formats", "JPEG (preferred), PNG, TIFF, non-animated GIF", "PNG, JPEG, WebP and several others"],
         ],
@@ -121,6 +121,12 @@ const guide: Record<Locale, GuideContent> = {
         a: "No. It can crop, resize, pad onto a coloured canvas, convert, compress and rename, but it does not cut products out of their background. Do that step in a photo editor first, then batch-process the results.",
       },
     ],
+    sources: [
+      { label: "Shopify Help Center – Product media types and sizes", url: "https://help.shopify.com/en/manual/products/product-media/product-media-types" },
+      { label: "Amazon Seller Forums – Product image requirements (Listings Lounge)", url: "https://sellercentral-europe.amazon.com/seller-forums/discussions/t/4b3c4c39-6f8c-4312-aa0e-99982eb8f5e1" },
+      { label: "Amazon Seller Forums – Main image requirements (white background, 85% fill)", url: "https://sellercentral.amazon.com/seller-forums/discussions/t/13af96ea-6b07-4bf9-8dbe-a13292c2e3b1" },
+      { label: "Google Search Central – Image SEO best practices", url: "https://developers.google.com/search/docs/appearance/google-images" },
+    ],
   },
 
   ko: {
@@ -132,7 +138,7 @@ const guide: Record<Locale, GuideContent> = {
       "상품 목록이 깔끔해 보이려면 모든 상품이 같은 모양의 캔버스에, 비슷한 크기로, 같은 배경 위에 놓여 있고 빠르게 열려야 합니다. 이 글에서는 캔버스 비율과 여백, 쿠팡·스마트스토어·해외 플랫폼의 이미지 기준, 올릴 형식과 크기, 파일 이름 짓는 법, 촬영분 전체를 한 번에 처리하는 방법을 다룹니다.",
     takeaways: [
       "모든 상품을 같은 캔버스(대부분 정사각형)에 맞추고, 상품을 자르기보다 여백을 채워 넣는 방식을 기본으로 하세요.",
-      "쿠팡 판매 가이드는 대표이미지 권장 500×500px, 5MB 이하, JPG·PNG를 안내합니다. 확대 보기를 생각하면 더 크게 준비하는 편이 낫습니다.",
+      "쿠팡 대표이미지 기준은 권장 500×500px, 5MB 이하, JPG·PNG로 알려져 있습니다. 확대 보기를 생각하면 더 크게 준비하는 편이 낫습니다.",
       "사진은 JPG로 올리고, PNG는 투명 배경이 실제로 필요할 때만 쓰세요. WebP는 해당 플랫폼이 받는지 먼저 확인해야 합니다.",
       "파일명은 linen-shirt-white-front.jpg처럼 짧고 설명적인 영문 소문자로 짓고, 손대지 않은 원본은 따로 보관하세요.",
     ],
@@ -140,7 +146,7 @@ const guide: Record<Locale, GuideContent> = {
       { type: "h2", text: "상품 전체에 하나의 캔버스 정하기" },
       {
         type: "p",
-        text: "고객은 상품을 목록에서 나란히 놓고 비교합니다. 어떤 사진은 가로, 어떤 사진은 세로이고, 또 어떤 사진은 상품이 구석에 작게 찍혀 있으면 목록이 어수선해 보이고, 실제로는 비슷한 크기의 상품도 달라 보입니다. 쿠팡은 정사각형이 아닌 이미지를 등록하면 자동으로 리사이징한다고 안내하고, 네이버 쇼핑과 스마트스토어 목록도 정사각형 썸네일로 보여 주기 때문에 국내에서는 1:1로 준비하는 것이 일반적입니다. 내가 의도하지 않은 방식으로 잘리거나 줄어드는 일을 막으려면 처음부터 **정사각형**으로 만들어 두는 편이 안전합니다.",
+        text: "고객은 상품을 목록에서 나란히 놓고 비교합니다. 어떤 사진은 가로, 어떤 사진은 세로이고, 또 어떤 사진은 상품이 구석에 작게 찍혀 있으면 목록이 어수선해 보이고, 실제로는 비슷한 크기의 상품도 달라 보입니다. 쿠팡은 권장 규격(정사각형)이 아닌 이미지를 자동으로 리사이징할 수 있고, 네이버 쇼핑과 스마트스토어 목록도 정사각형 썸네일로 보여 주기 때문에 국내에서는 1:1로 준비하는 것이 일반적입니다. 내가 의도하지 않은 방식으로 잘리거나 줄어드는 일을 막으려면 처음부터 **정사각형**으로 만들어 두는 편이 안전합니다.",
       },
       {
         type: "p",
@@ -153,9 +159,9 @@ const guide: Record<Locale, GuideContent> = {
         caption: "각 플랫폼의 공개 안내 기준이며, 카테고리별 가이드나 상품 등록 화면의 안내가 우선합니다",
         head: ["플랫폼", "크기", "용량·형식", "배경·기타"],
         rows: [
-          ["쿠팡 (대표이미지)", "최소 100px 이상, 권장 500 × 500px", "5MB 이하, JPG·PNG", "정사각형이 아니면 쿠팡이 자동 리사이징, 추가이미지는 9장까지"],
+          ["쿠팡 (대표이미지)", "최소 100px 이상, 권장 500 × 500px", "5MB 이하, JPG·PNG", "권장 규격이 아니면 자동 리사이징될 수 있음, 추가이미지는 9장까지"],
           ["네이버 스마트스토어", "정사각형(1:1)으로 준비하는 것이 일반적", "상품 등록 화면의 안내를 확인", "목록·검색 결과에 정사각형 썸네일로 노출"],
-          ["Amazon (메인 이미지)", "긴 변 500~10,000px, 확대 보기를 위해 변당 1,000px 초과 권장", "JPEG(선호), PNG, TIFF, 움직이지 않는 GIF", "순백 배경(RGB 255, 255, 255), 상품이 화면의 약 85%"],
+          ["Amazon (메인 이미지)", "긴 변 500~10,000px, 확대 보기를 위해 긴 변 1,000px 초과 권장", "JPEG(선호), PNG, TIFF, 움직이지 않는 GIF", "순백 배경(RGB 255, 255, 255), 상품이 화면의 약 85%"],
           ["Shopify", "정사각형은 2048 × 2048px이 가장 잘 보임, 최대 5000 × 5000px(25MP)", "20MB 미만, PNG·JPEG·WebP 등", "배경 규정 없음, 비율 통일 권장"],
         ],
       },
@@ -242,6 +248,12 @@ const guide: Record<Locale, GuideContent> = {
         q: "Intera Tools로 상품 사진 배경을 지울 수 있나요?",
         a: "아닙니다. 자르기, 크기 조절, 색 배경 여백 채우기, 형식 변환, 압축, 파일명 변경은 할 수 있지만 배경 제거 기능은 없습니다. 배경은 사진 편집 프로그램에서 먼저 지우고, 그 결과물을 일괄 처리하세요.",
       },
+    ],
+    sources: [
+      { label: "Shopify 고객센터 – 상품 미디어 형식과 크기", url: "https://help.shopify.com/en/manual/products/product-media/product-media-types" },
+      { label: "Amazon 셀러 포럼 – 상품 이미지 요구 사항", url: "https://sellercentral-europe.amazon.com/seller-forums/discussions/t/4b3c4c39-6f8c-4312-aa0e-99982eb8f5e1" },
+      { label: "Amazon 셀러 포럼 – 메인 이미지 기준(흰 배경, 85%)", url: "https://sellercentral.amazon.com/seller-forums/discussions/t/13af96ea-6b07-4bf9-8dbe-a13292c2e3b1" },
+      { label: "Google 검색 센터 – 이미지 SEO 권장사항", url: "https://developers.google.com/search/docs/appearance/google-images" },
     ],
   },
 };

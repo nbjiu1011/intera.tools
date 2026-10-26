@@ -184,6 +184,23 @@ export default async function GuidePage({ params }: PageProps<"/[locale]/guides/
               </div>
             </section>
           ) : null}
+
+          {c.sources?.length ? (
+            <section aria-labelledby="sources" className="mt-14">
+              <h2 id="sources" className="border-t border-line pt-6 text-sm font-semibold tracking-[0.08em] text-ink-3 uppercase">
+                {g.sources}
+              </h2>
+              <ol className="mt-3 grid gap-1.5 text-sm">
+                {c.sources.map((src) => (
+                  <li key={src.url}>
+                    <a href={src.url} target="_blank" rel="noopener noreferrer" className="text-ink-2 underline decoration-line-strong underline-offset-[3px] hover:text-ink">
+                      {src.label}
+                    </a>
+                  </li>
+                ))}
+              </ol>
+            </section>
+          ) : null}
         </div>
       </div>
 

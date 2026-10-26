@@ -74,7 +74,7 @@ const guide: Record<Locale, GuideContent> = {
       },
       {
         type: "p",
-        text: "**Creating** WebP files in a browser is a different matter. Web tools like Intera Tools draw the image onto a canvas and ask the browser to encode it. Chrome and Edge can encode WebP this way, and Firefox has supported it since version 96. Safari has not: when asked for WebP, it returns a PNG instead. Intera Tools checks this before you start, and in browsers that can't encode WebP the WebP option is disabled with the message \"This browser can't create WebP files.\" Opening and converting WebP files to JPG or PNG still works in Safari.",
+        text: "**Creating** WebP files in a browser is a different matter. Web tools like Intera Tools draw the image onto a canvas and ask the browser to encode it. Chrome and Edge can encode WebP this way, and Firefox has supported it since version 96. Safari has not: when asked for WebP, it returns a PNG instead. Intera Tools checks this before you start, and in browsers that can't encode WebP the WebP options can't be used and show the message \"This browser can't create WebP files.\" Opening and converting WebP files to JPG or PNG still works in Safari.",
       },
 
       { type: "h2", text: "When not to use WebP" },
@@ -126,6 +126,12 @@ const guide: Record<Locale, GuideContent> = {
         q: "Can WebP keep a transparent background?",
         a: "Yes. Both lossy and lossless WebP support an alpha channel. Converting a transparent PNG to WebP keeps the transparency, while converting to JPG fills it with a solid color.",
       },
+    ],
+    sources: [
+      { label: "Google for Developers – An image format for the Web (WebP)", url: "https://developers.google.com/speed/webp" },
+      { label: "MDN – Image file type and format guide (WebP)", url: "https://developer.mozilla.org/en-US/docs/Web/Media/Guides/Formats/Image_types" },
+      { label: "Can I use – WebP image format", url: "https://caniuse.com/webp" },
+      { label: "Can I use – canvas toBlob() WebP encoding support", url: "https://caniuse.com/mdn-api_htmlcanvaselement_toblob_type_parameter_webp" },
     ],
   },
 
@@ -201,7 +207,7 @@ const guide: Record<Locale, GuideContent> = {
       },
       {
         type: "p",
-        text: "브라우저에서 WebP 파일을 **만드는** 것은 별개의 문제입니다. Intera Tools 같은 웹 도구는 이미지를 캔버스에 그린 뒤 브라우저에 인코딩을 요청합니다. Chrome과 Edge는 이 방식으로 WebP를 만들 수 있고, Firefox는 96 버전부터 지원합니다. Safari는 지원하지 않아 WebP를 요청하면 대신 PNG를 돌려줍니다. Intera Tools는 작업 전에 이를 확인하고, WebP를 만들 수 없는 브라우저에서는 \"이 브라우저는 WebP 파일을 만들 수 없습니다.\"라는 안내와 함께 WebP 옵션을 비활성화합니다. Safari에서도 WebP 파일을 열어 JPG나 PNG로 바꾸는 것은 가능합니다.",
+        text: "브라우저에서 WebP 파일을 **만드는** 것은 별개의 문제입니다. Intera Tools 같은 웹 도구는 이미지를 캔버스에 그린 뒤 브라우저에 인코딩을 요청합니다. Chrome과 Edge는 이 방식으로 WebP를 만들 수 있고, Firefox는 96 버전부터 지원합니다. Safari는 지원하지 않아 WebP를 요청하면 대신 PNG를 돌려줍니다. Intera Tools는 작업 전에 이를 확인하고, WebP를 만들 수 없는 브라우저에서는 \"이 브라우저는 WebP 파일을 만들 수 없습니다.\"라는 안내와 함께 WebP 옵션을 쓸 수 없게 합니다. Safari에서도 WebP 파일을 열어 JPG나 PNG로 바꾸는 것은 가능합니다.",
       },
 
       { type: "h2", text: "WebP를 피하는 것이 좋은 경우" },
@@ -253,6 +259,12 @@ const guide: Record<Locale, GuideContent> = {
         q: "WebP도 투명 배경을 유지할 수 있나요?",
         a: "네. 손실·무손실 WebP 모두 알파 채널을 지원합니다. 투명 PNG를 WebP로 바꾸면 투명도가 유지되고, JPG로 바꾸면 단색으로 채워집니다.",
       },
+    ],
+    sources: [
+      { label: "Google 개발자 문서 – WebP 소개와 압축 연구", url: "https://developers.google.com/speed/webp" },
+      { label: "MDN – 이미지 파일 형식 가이드(WebP)", url: "https://developer.mozilla.org/en-US/docs/Web/Media/Guides/Formats/Image_types" },
+      { label: "Can I use – WebP 이미지 형식 지원 현황", url: "https://caniuse.com/webp" },
+      { label: "Can I use – 캔버스 toBlob() WebP 인코딩 지원 현황", url: "https://caniuse.com/mdn-api_htmlcanvaselement_toblob_type_parameter_webp" },
     ],
   },
 };

@@ -30,7 +30,7 @@ const guide: Record<Locale, GuideContent> = {
       },
       {
         type: "p",
-        text: "Two details make these numbers smaller in practice. First, email attachments are converted to text (Base64) for sending, which makes them roughly a third larger in transit; Microsoft's own Exchange documentation describes this as a 33% encoding increase. Second, your message must also fit the **recipient's** server, and you rarely know that limit. A total of around **15 MB** of files keeps you under a 20 MB ceiling even after encoding, which is why it is a good target when you are not sure who is on the other end.",
+        text: "Two details make these numbers smaller in practice. First, email attachments are converted to text (Base64) for sending, which makes them roughly a third larger in transit; Microsoft's own Exchange documentation describes this as a 33% encoding increase. Second, your message must also fit the **recipient's** server, and you rarely know that limit. A total of around **15 MB** of files comes to about 20 MB once encoded, so it still fits a 20 MB ceiling, which is why it is a good target when you are not sure who is on the other end.",
       },
 
       { type: "h2", text: "Work out a per-photo budget" },
@@ -114,6 +114,12 @@ const guide: Record<Locale, GuideContent> = {
         a: "No. Resizing, compressing and PDF creation run in your browser, and the files are not uploaded to Intera Tools. They only leave your device when you attach them to the email yourself.",
       },
     ],
+    sources: [
+      { label: "Gmail Help – Attachment size limit", url: "https://support.google.com/mail/answer/6584" },
+      { label: "Microsoft Support – Sending limits in Outlook.com", url: "https://support.microsoft.com/en-us/outlook/sending-limits-in-outlook-com" },
+      { label: "Microsoft Learn – Outlook “attachment size exceeds the allowable limit” (20 MB default)", url: "https://learn.microsoft.com/en-us/troubleshoot/outlook/message-body/attachment-size-exceeds-the-allowable-limit-error" },
+      { label: "Microsoft Learn – Exchange Online limits (message size, 33% encoding increase)", url: "https://learn.microsoft.com/en-us/office365/servicedescriptions/exchange-online-service-description/exchange-online-limits" },
+    ],
   },
 
   ko: {
@@ -140,6 +146,7 @@ const guide: Record<Locale, GuideContent> = {
           ["네이버 메일", "메일 쓰기 화면의 첨부 영역에 표시되는 일반 첨부 한도", "‘대용량 첨부’로 전환되어 파일 대신 다운로드 링크가 전달되며, 링크는 정해진 기간이 지나면 받을 수 없습니다"],
           ["다음 메일", "메일 쓰기 화면에 표시되는 일반 첨부 한도", "한도를 넘는 파일은 대용량 첨부로 전환되어 링크로 전달됩니다"],
           ["Outlook.com", "Microsoft 도움말에 따라 첨부당 25MB 또는 메일 한 통 20MB(본문 포함)로 안내", "OneDrive 링크로 공유할 수 있으며, OneDrive 파일은 2GB까지 가능합니다"],
+          ["Microsoft 365 회사 계정", "기본값 메일 한 통 35MB, 관리자가 1~150MB로 설정 가능", "메일이 거부되고 전송 실패 알림(NDR)이 돌아옵니다"],
         ],
       },
       {
@@ -148,7 +155,7 @@ const guide: Record<Locale, GuideContent> = {
       },
       {
         type: "p",
-        text: "숫자보다 여유 있게 맞춰야 하는 이유도 두 가지 있습니다. 첫째, 첨부 파일은 전송할 때 텍스트(Base64)로 바뀌면서 약 3분의 1 커집니다. Microsoft의 Exchange 문서도 이를 33% 인코딩 증가로 설명합니다. 둘째, 메일은 **받는 사람** 서버의 한도도 통과해야 하는데, 그 값은 보통 알 수 없습니다. 첨부 합계를 **15MB** 안팎으로 맞추면 인코딩 후에도 20MB 아래에 머물기 때문에, 상대 환경을 모를 때 안전한 목표가 됩니다.",
+        text: "숫자보다 여유 있게 맞춰야 하는 이유도 두 가지 있습니다. 첫째, 첨부 파일은 전송할 때 텍스트(Base64)로 바뀌면서 약 3분의 1 커집니다. Microsoft의 Exchange 문서도 이를 33% 인코딩 증가로 설명합니다. 둘째, 메일은 **받는 사람** 서버의 한도도 통과해야 하는데, 그 값은 보통 알 수 없습니다. 첨부 합계를 **15MB** 안팎으로 맞추면 인코딩 후 약 20MB가 되어 20MB 한도 안에 들어오기 때문에, 상대 환경을 모를 때 안전한 목표가 됩니다.",
       },
 
       { type: "h2", text: "사진 한 장당 용량 예산 정하기" },
@@ -231,6 +238,12 @@ const guide: Record<Locale, GuideContent> = {
         q: "사진을 줄이는 동안 파일이 외부로 전송되나요?",
         a: "아닙니다. 크기 변경, 압축, PDF 만들기는 모두 브라우저 안에서 실행되며 Intera Tools 서버로 업로드되지 않습니다. 파일이 기기 밖으로 나가는 것은 직접 메일에 첨부해 보낼 때뿐입니다.",
       },
+    ],
+    sources: [
+      { label: "Gmail 고객센터 – 첨부파일 크기 제한", url: "https://support.google.com/mail/answer/6584" },
+      { label: "Microsoft 지원 – Outlook.com 보내기 제한", url: "https://support.microsoft.com/en-us/outlook/sending-limits-in-outlook-com" },
+      { label: "Microsoft Learn – Outlook 첨부 크기 한도 초과 오류(기본 20MB)", url: "https://learn.microsoft.com/en-us/troubleshoot/outlook/message-body/attachment-size-exceeds-the-allowable-limit-error" },
+      { label: "Microsoft Learn – Exchange Online 한도(메일 크기, 33% 인코딩 증가)", url: "https://learn.microsoft.com/en-us/office365/servicedescriptions/exchange-online-service-description/exchange-online-limits" },
     ],
   },
 };

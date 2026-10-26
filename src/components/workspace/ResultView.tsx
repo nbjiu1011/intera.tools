@@ -168,7 +168,7 @@ export function ResultView({
               type="button"
               onClick={downloadAll}
               disabled={zipping}
-              className="bg-brand-gradient inline-flex h-14 flex-1 items-center justify-center gap-2.5 rounded-2xl px-7 text-[1.05rem] font-semibold transition hover:brightness-110 active:scale-[.99] disabled:opacity-70 sm:flex-none"
+              className="bg-brand-gradient inline-flex h-14 w-full shrink-0 items-center justify-center gap-2.5 rounded-2xl px-7 text-[1.05rem] font-semibold transition hover:brightness-110 active:scale-[.99] disabled:opacity-70 sm:w-auto"
             >
               {zipping ? <LoaderCircle className="size-5 animate-spin" /> : <Download className="size-5" />}
               {zipping ? w.zipping : outputs.length > 1 ? w.downloadAll : w.download}

@@ -137,6 +137,7 @@ const pages = {
         title: "Server logs",
         paragraphs: [
           "Like most websites, our hosting provider keeps standard server logs, which include your IP address, browser user agent, the requested URL and the time of the request. These logs are used for security and abuse prevention and are kept only for a short period.",
+          "Our hosting provider, Cloudflare, also measures page views and page-load performance with Cloudflare Web Analytics. It does not use cookies or other identifiers stored on your device and collects information such as the page visited, the referring page, browser type and loading times. It never has access to the files you process.",
         ],
       },
       {

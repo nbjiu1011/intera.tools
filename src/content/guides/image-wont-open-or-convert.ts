@@ -97,7 +97,7 @@ const guide: Record<Locale, GuideContent> = {
       { type: "h2", text: "“This browser can’t save WebP files.”" },
       {
         type: "p",
-        text: "Saving uses the browser’s built-in encoder. Chrome, Edge and Firefox can save WebP, but Safari on Mac, iPhone and iPad can only display it. Intera Tools checks this when the page loads and disables the WebP option with the hint **“This browser can’t create WebP files.”** If a WebP save still fails, you see **“This browser can’t save WebP files. Choose another format or use Chrome, Edge or Firefox.”** Choose JPG for photos or PNG for graphics with transparency. The [WebP guide](/guides/webp-format-explained) explains when WebP is worth it.",
+        text: "Saving uses the browser’s built-in encoder. Chrome, Edge and Firefox can save WebP, but Safari on Mac, iPhone and iPad can only display it. Intera Tools checks this when the page loads and marks the WebP option as unavailable with the hint **“This browser can’t create WebP files.”** If a WebP save still fails, you see **“This browser can’t save WebP files. Choose another format or use Chrome, Edge or Firefox.”** Choose JPG for photos or PNG for graphics with transparency. The [WebP guide](/guides/webp-format-explained) explains when WebP is worth it.",
       },
 
       { type: "h2", text: "“Your device ran out of memory. Try fewer or smaller files.”" },
@@ -139,6 +139,13 @@ const guide: Record<Locale, GuideContent> = {
         q: "Are my files uploaded when an error happens?",
         a: "No. Checks and processing run entirely in your browser, and errors are shown locally. Nothing is sent to a server, whether a file succeeds or fails.",
       },
+    ],
+    sources: [
+      { label: "Can I use: HEIF/HEIC image format", url: "https://caniuse.com/heif" },
+      { label: "Apple Support: Using HEIF or HEVC media on Apple devices", url: "https://support.apple.com/en-us/116944" },
+      { label: "Can I use: WebP in canvas toBlob()", url: "https://caniuse.com/mdn-api_htmlcanvaselement_toblob_type_parameter_webp" },
+      { label: "MDN: HTMLCanvasElement.toBlob()", url: "https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/toBlob" },
+      { label: "Apple Support: iPhone 16 technical specifications", url: "https://support.apple.com/en-us/121029" },
     ],
   },
 
@@ -237,7 +244,7 @@ const guide: Record<Locale, GuideContent> = {
       { type: "h2", text: "“이 브라우저는 WebP 파일을 저장할 수 없습니다.”" },
       {
         type: "p",
-        text: "파일 저장은 브라우저에 내장된 인코더가 맡습니다. Chrome, Edge, Firefox는 WebP를 저장할 수 있지만, Mac·아이폰·아이패드의 Safari는 WebP를 보여 주기만 할 뿐 만들지 못합니다. Intera Tools는 페이지를 열 때 이를 확인해 WebP 옵션을 끄고 **“이 브라우저는 WebP 파일을 만들 수 없습니다.”**라고 안내합니다. 그래도 저장 단계에서 실패하면 **“이 브라우저는 WebP 파일을 저장할 수 없습니다. 다른 형식을 고르거나 Chrome, Edge, Firefox를 이용해 주세요.”**가 표시됩니다. 사진은 JPG, 투명 배경이 필요한 그래픽은 PNG를 고르세요. WebP가 언제 유리한지는 [WebP 가이드](/guides/webp-format-explained)에서 다룹니다.",
+        text: "파일 저장은 브라우저에 내장된 인코더가 맡습니다. Chrome, Edge, Firefox는 WebP를 저장할 수 있지만, Mac·아이폰·아이패드의 Safari는 WebP를 보여 주기만 할 뿐 만들지 못합니다. Intera Tools는 페이지를 열 때 이를 확인해 WebP 옵션을 쓸 수 없다고 표시하고 **“이 브라우저는 WebP 파일을 만들 수 없습니다.”**라고 안내합니다. 그래도 저장 단계에서 실패하면 **“이 브라우저는 WebP 파일을 저장할 수 없습니다. 다른 형식을 고르거나 Chrome, Edge, Firefox를 이용해 주세요.”**가 표시됩니다. 사진은 JPG, 투명 배경이 필요한 그래픽은 PNG를 고르세요. WebP가 언제 유리한지는 [WebP 가이드](/guides/webp-format-explained)에서 다룹니다.",
       },
 
       { type: "h2", text: "“기기 메모리가 부족합니다. 파일 수나 크기를 줄여 주세요.”" },
@@ -279,6 +286,13 @@ const guide: Record<Locale, GuideContent> = {
         q: "오류가 나면 파일이 서버로 전송되나요?",
         a: "아니요. 형식 확인부터 처리까지 모두 브라우저 안에서 이루어지고, 오류 메시지도 기기 안에서 표시됩니다. 성공하든 실패하든 파일은 서버로 전송되지 않습니다.",
       },
+    ],
+    sources: [
+      { label: "Can I use: HEIF/HEIC 이미지 형식 지원", url: "https://caniuse.com/heif" },
+      { label: "Apple 지원: Apple 기기에서 HEIF 또는 HEVC 미디어 사용하기", url: "https://support.apple.com/en-us/116944" },
+      { label: "Can I use: 캔버스 toBlob()의 WebP 지원", url: "https://caniuse.com/mdn-api_htmlcanvaselement_toblob_type_parameter_webp" },
+      { label: "MDN: HTMLCanvasElement.toBlob()", url: "https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/toBlob" },
+      { label: "Apple 지원: iPhone 16 기술 사양", url: "https://support.apple.com/en-us/121029" },
     ],
   },
 };

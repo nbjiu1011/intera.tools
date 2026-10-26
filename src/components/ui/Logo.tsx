@@ -26,7 +26,7 @@ export function Logo({ className = "" }: { className?: string }) {
     <span className={`inline-flex items-center gap-2 ${className}`}>
       <LogoMark />
       <span className="text-[1.35rem] font-extrabold tracking-[-0.03em] whitespace-nowrap text-ink">
-        Intera<span className="text-gradient ml-[0.28em] font-bold">Tools</span>
+        Intera <span className="text-gradient font-bold">Tools</span>
       </span>
     </span>
   );

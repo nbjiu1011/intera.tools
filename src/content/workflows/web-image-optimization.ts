@@ -7,7 +7,7 @@ const content: Record<Locale, WorkflowContent> = {
     short: "Resize to a max width, convert to WebP and compress in one pass",
     metaTitle: "Optimize Images for the Web – Resize & Convert to WebP",
     metaDescription:
-      "Make website images load faster: cap the width at 1600 or 1920 px, convert to WebP (or JPG), set the quality and keep originals that are already smaller. Free and private.",
+      "Make website images load faster: cap the width at 1600 or 1920 px, convert to WebP or JPG, set the quality and keep originals that are already smaller.",
     h1: "Web image optimization",
     lead: "Prepare a batch of images for a website or blog: cap their width, convert them to WebP, compress them, and see exactly how much you saved before downloading a ZIP.",
     stepLabels: ["Add images", "Cap width", "Convert", "Compress", "Download ZIP"],

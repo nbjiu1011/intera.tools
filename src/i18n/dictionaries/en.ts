@@ -231,6 +231,7 @@ export const en = {
     tryTool: "Open tool",
     tryWorkflow: "Open workflow",
     faq: "Questions",
+    sources: "Sources",
   },
   compare: {
     action: "Compare formats",
@@ -376,7 +377,7 @@ export const en = {
     quality: "JPG / WebP quality",
     pngColors: "PNG colors",
     toWebp: "Convert to WebP",
-    toWebpHint: "WebP files are usually 25–35% smaller than JPG.",
+    toWebpHint: "Google measured WebP 25–34% smaller than JPG at similar quality.",
     webpUnsupported: "This browser can’t create WebP files.",
     metadataNote: "Metadata such as camera details and GPS location is removed.",
   },

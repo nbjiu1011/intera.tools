@@ -73,6 +73,8 @@ export type GuideContent = {
   takeaways: string[];
   body: GuideBlock[];
   faq?: { q: string; a: string }[];
+  /** Official or primary sources for external facts in the guide, shown at the end. */
+  sources?: { label: string; url: string }[];
 };
 
 /** A static text page (about, privacy, terms). */

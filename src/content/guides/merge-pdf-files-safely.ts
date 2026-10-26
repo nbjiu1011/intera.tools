@@ -32,7 +32,7 @@ const guide: Record<Locale, GuideContent> = {
       },
       {
         type: "p",
-        text: "You can check this yourself. Open your browser's developer tools (F12 on most desktop browsers), switch to the Network tab and then add your files. You'll see the site's scripts load and occasional small anonymous usage events, such as which tool ran, how many files and a rough size range, but never file names, file contents or a request carrying your PDFs.",
+        text: "You can check this yourself. Open your browser's developer tools (F12 on most desktop browsers), switch to the Network tab and then add your files. You'll see the site's scripts, small anonymous usage events, page analytics and ad requests, but never a request carrying your PDFs. The guide to [browser-based file tools](/guides/browser-based-file-processing) explains what each request contains.",
       },
       { type: "h2", text: "Step by step" },
       {
@@ -48,7 +48,7 @@ const guide: Record<Locale, GuideContent> = {
           },
           {
             title: "Check for problem files",
-            body: "Encrypted or damaged files are flagged with a warning, crossed out in **Merge order** and left out of the merge. You need at least two valid files.",
+            body: "Files that need a password to open, or that are damaged, are flagged with a warning, crossed out in **Merge order** and left out of the merge. You need at least two valid files.",
           },
           {
             title: "Merge and download",
@@ -96,12 +96,12 @@ const guide: Record<Locale, GuideContent> = {
       { type: "h2", text: "Password-protected PDFs" },
       {
         type: "p",
-        text: "pdf-lib can't open encrypted PDFs, so Merge PDF shows \"This PDF is password-protected. Remove the password first, then try again.\" This also applies to PDFs that open without a password but restrict printing or editing; those are encrypted too. If you know the password, open the file in a PDF app you trust and save an unprotected copy, then merge that copy. Delete the unprotected copy once you no longer need it.",
+        text: "pdf-lib can't open encrypted PDFs, so Merge PDF shows \"This PDF is password-protected. Remove the password first, then try again.\" This also applies to PDFs that open without a password but restrict printing or editing; those are encrypted too. Such a file may look normal in the list, and the message appears when you click **Merge PDF**. If you know the password, save an unprotected copy in a PDF app you trust and merge that copy; [A PDF won't open, merge or split](/guides/pdf-wont-open-or-merge) lists three ways to do it. Delete the unprotected copy once you no longer need it.",
       },
       { type: "h2", text: "Tidy up the result with Organize PDF" },
       {
         type: "p",
-        text: "[Organize PDF](/organize-pdf) works page by page. Drag pages into a new order, use **Rotate page** or **Delete page** on individual pages (**Restore page** brings one back), **Insert blank page** where you need a separator, and **Add PDF** to bring in more files. When several files are loaded, each page is marked with its source file's letter and color. Click **Save PDF** to get the new document. Organize PDF copies pages the same way as Merge PDF, so the same list of kept and dropped items applies.",
+        text: "[Organize PDF](/organize-pdf) works page by page. Drag pages into a new order, use **Rotate page** or **Delete page** on individual pages (**Reset changes** undoes all your edits), **Insert blank page** where you need a separator, and **Add PDF** to bring in more files. When several files are loaded, each page is marked with its source file's letter and color. Click **Save PDF** to get the new document. Organize PDF copies pages the same way as Merge PDF, so the same list of kept and dropped items applies.",
       },
       {
         type: "p",
@@ -124,12 +124,16 @@ const guide: Record<Locale, GuideContent> = {
       },
       {
         q: "Can I merge password-protected PDFs?",
-        a: "Not directly. Encrypted files are flagged and left out. Open them with the password in a PDF app, save an unprotected copy and merge that.",
+        a: "Not directly. Encrypted files are flagged and left out, or stop the merge with a message if they only restrict printing or editing. Open them with the password in a PDF app, save an unprotected copy and merge that.",
       },
       {
         q: "Can I merge PDFs on my phone?",
         a: "Yes, Merge PDF works in mobile browsers too. Very large files may be slow, or fail on phones with little memory, because everything is processed on the device.",
       },
+    ],
+    sources: [
+      { label: "pdf-lib: encryption handling (README)", url: "https://github.com/Hopding/pdf-lib#encryption-handling" },
+      { label: "pdf-lib API: PDFDocument.copyPages", url: "https://pdf-lib.js.org/docs/api/classes/pdfdocument" },
     ],
   },
   ko: {
@@ -162,7 +166,7 @@ const guide: Record<Locale, GuideContent> = {
       },
       {
         type: "p",
-        text: "직접 확인할 수도 있습니다. 브라우저 개발자 도구(대부분의 PC 브라우저에서 F12)를 열고 네트워크 탭으로 이동한 뒤 파일을 추가해 보세요. 사이트 스크립트가 로드되는 요청과 가끔 보내는 작은 익명 이용 통계(어떤 도구를 썼는지, 파일 개수, 대략적인 용량 구간)는 보이지만, 파일 이름이나 내용, PDF를 실어 보내는 요청은 보이지 않습니다.",
+        text: "직접 확인할 수도 있습니다. 브라우저 개발자 도구(대부분의 PC 브라우저에서 F12)를 열고 네트워크 탭으로 이동한 뒤 파일을 추가해 보세요. 사이트 스크립트, 작은 익명 이용 통계, 페이지 분석, 광고 요청은 보이지만 PDF를 실어 보내는 요청은 보이지 않습니다. 각 요청에 무엇이 담기는지는 [브라우저 기반 파일 도구 가이드](/guides/browser-based-file-processing)에서 설명합니다.",
       },
       { type: "h2", text: "합치는 순서" },
       {
@@ -178,7 +182,7 @@ const guide: Record<Locale, GuideContent> = {
           },
           {
             title: "문제 있는 파일 확인",
-            body: "암호화되었거나 손상된 파일에는 경고가 표시되고, **합칠 순서**에서 취소선이 그어진 채 병합에서 빠집니다. 정상 파일이 2개 이상 있어야 합칠 수 있습니다.",
+            body: "열 때 비밀번호가 필요하거나 손상된 파일에는 경고가 표시되고, **합칠 순서**에서 취소선이 그어진 채 병합에서 빠집니다. 정상 파일이 2개 이상 있어야 합칠 수 있습니다.",
           },
           {
             title: "합치고 다운로드",
@@ -226,12 +230,12 @@ const guide: Record<Locale, GuideContent> = {
       { type: "h2", text: "비밀번호가 걸린 PDF" },
       {
         type: "p",
-        text: "pdf-lib는 암호화된 PDF를 열 수 없어서 '비밀번호로 보호된 PDF입니다. 비밀번호를 해제한 뒤 다시 시도해 주세요.'라는 안내가 나옵니다. 열 때는 비밀번호를 묻지 않지만 인쇄나 편집을 제한해 둔 PDF도 암호화된 파일이라 마찬가지입니다. 비밀번호를 알고 있다면 믿을 수 있는 PDF 프로그램에서 파일을 열어 보호가 해제된 사본을 저장한 뒤 그 사본을 합치세요. 해제한 사본은 다 쓴 뒤 지우는 것이 좋습니다.",
+        text: "pdf-lib는 암호화된 PDF를 열 수 없어서 '비밀번호로 보호된 PDF입니다. 비밀번호를 해제한 뒤 다시 시도해 주세요.'라는 안내가 나옵니다. 열 때는 비밀번호를 묻지 않지만 인쇄나 편집을 제한해 둔 PDF도 암호화된 파일이라 마찬가지입니다. 이런 파일은 목록에서는 정상으로 보이다가 **PDF 합치기**를 누를 때 안내가 나옵니다. 비밀번호를 알고 있다면 믿을 수 있는 PDF 프로그램에서 보호가 해제된 사본을 저장해 그 사본을 합치세요. 사본을 만드는 세 가지 방법은 [PDF가 열리지 않거나 합치기·분할이 안 될 때](/guides/pdf-wont-open-or-merge)에 정리했습니다. 해제한 사본은 다 쓴 뒤 지우는 것이 좋습니다.",
       },
       { type: "h2", text: "PDF 페이지 정리로 마무리하기" },
       {
         type: "p",
-        text: "[PDF 페이지 정리](/organize-pdf)는 페이지 단위로 작업합니다. 페이지를 끌어서 순서를 바꾸고, 각 페이지에서 **페이지 회전**이나 **페이지 삭제**를 누르세요(**페이지 복원**으로 되살릴 수 있습니다). 구분용 페이지가 필요하면 **빈 페이지 삽입**을, 파일을 더 넣으려면 **PDF 추가**를 씁니다. 파일을 여러 개 불러오면 페이지마다 원본 파일을 나타내는 알파벳과 색이 표시됩니다. **PDF 저장**을 누르면 새 문서가 만들어집니다. PDF 페이지 정리도 PDF 합치기와 같은 방식으로 페이지를 복사하므로, 위 표의 유지·삭제 항목이 똑같이 적용됩니다.",
+        text: "[PDF 페이지 정리](/organize-pdf)는 페이지 단위로 작업합니다. 페이지를 끌어서 순서를 바꾸고, 각 페이지에서 **페이지 회전**이나 **페이지 삭제**를 누르세요(**변경 취소**로 모든 변경을 되돌릴 수 있습니다). 구분용 페이지가 필요하면 **빈 페이지 삽입**을, 파일을 더 넣으려면 **PDF 추가**를 씁니다. 파일을 여러 개 불러오면 페이지마다 원본 파일을 나타내는 알파벳과 색이 표시됩니다. **PDF 저장**을 누르면 새 문서가 만들어집니다. PDF 페이지 정리도 PDF 합치기와 같은 방식으로 페이지를 복사하므로, 위 표의 유지·삭제 항목이 똑같이 적용됩니다.",
       },
       {
         type: "p",
@@ -254,12 +258,16 @@ const guide: Record<Locale, GuideContent> = {
       },
       {
         q: "비밀번호가 걸린 PDF도 합칠 수 있나요?",
-        a: "바로는 안 됩니다. 암호화된 파일은 경고와 함께 병합에서 빠집니다. PDF 프로그램에서 비밀번호를 입력해 연 뒤 보호가 해제된 사본을 저장해 합치세요.",
+        a: "바로는 안 됩니다. 암호화된 파일은 경고와 함께 병합에서 빠지고, 인쇄·편집만 제한된 파일은 합치기를 누를 때 안내와 함께 멈춥니다. PDF 프로그램에서 비밀번호를 입력해 연 뒤 보호가 해제된 사본을 저장해 합치세요.",
       },
       {
         q: "휴대폰에서도 합칠 수 있나요?",
         a: "모바일 브라우저에서도 똑같이 쓸 수 있습니다. 다만 모든 처리를 기기에서 하므로 아주 큰 파일은 느리거나, 메모리가 적은 휴대폰에서는 실패할 수 있습니다.",
       },
+    ],
+    sources: [
+      { label: "pdf-lib: 암호화 문서 처리(README)", url: "https://github.com/Hopding/pdf-lib#encryption-handling" },
+      { label: "pdf-lib API: PDFDocument.copyPages", url: "https://pdf-lib.js.org/docs/api/classes/pdfdocument" },
     ],
   },
 };

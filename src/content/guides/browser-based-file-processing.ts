@@ -52,7 +52,7 @@ const guide: Record<Locale, GuideContent> = {
         items: [
           { title: "Open the developer tools", body: "In Chrome, Edge or Firefox on a computer, press F12 (or Cmd+Option+I on a Mac) and open the **Network** tab. Click the clear button so the list is empty." },
           { title: "Process a file", body: "Add a file you can recognize by size, for example a 5 MB PDF, and run the tool." },
-          { title: "Read the list", body: "Sort by size or look at the request and response sizes. An upload would show up as a request carrying roughly the size of your file. On Intera Tools you will see code files, entries starting with `blob:` (local memory, not network transfers), a small POST to `/api/events` (a few hundred bytes) and possibly ad-related requests to Google domains." },
+          { title: "Read the list", body: "Sort by size or look at the request and response sizes. An upload would show up as a request carrying roughly the size of your file. On Intera Tools you will see code files, entries starting with `blob:` (local memory, not network transfers), a small POST to `/api/events` (a few hundred bytes), Cloudflare's page analytics beacon and possibly ad-related requests to Google domains." },
         ],
       },
       {
@@ -73,10 +73,11 @@ const guide: Record<Locale, GuideContent> = {
       {
         type: "ul",
         items: [
-          "**Anonymous usage events.** A tool was opened, files were added or rejected, processing started, finished, failed or was cancelled, a result was downloaded, you continued to another tool, or a search on the home page found results or not. Each event carries the event name, a timestamp, the page language and a device class (mobile, tablet or desktop, based on window width). Depending on the event it also includes the tool name, the number of files, an input size range (such as \"1–5MB\"), the processing time, an error code (such as \"encrypted\"), and how files were added (picked, dropped, pasted or passed from another tool).",
+          "**Anonymous usage events.** A tool or guide was opened, files were added or rejected, processing started, finished, failed or was cancelled, a result was downloaded, you continued to another tool, or a search on the home page found results or not. Each event carries the event name, a timestamp, the page language and a device class (mobile, tablet or desktop, based on window width). Depending on the event it also includes the tool name, the number of files, an input size range (such as \"1–5MB\"), the processing time, an error code (such as \"encrypted\"), and how files were added (picked, dropped, pasted or passed from another tool).",
           "**Error reports.** If a script error occurs, its message, cut to 160 characters, is sent so broken tools can be found.",
           "**Never included:** file names, file contents, image pixels, PDF text, or anything you type, such as QR code text, watermark text or search terms. Events use no cookies or identifiers. The server keeps only a fixed list of fields and does not record your IP address or browser user agent with them.",
           "**No events at all** if your browser sends Do Not Track or Global Privacy Control.",
+          "**Page analytics by our host.** The hosting provider, Cloudflare, adds its Web Analytics script, which reports page views, the referring page, browser type and page-load timing without cookies. It runs on the page, not on your files.",
           "**Advertising.** Pages load Google AdSense, which pays for the site. Google may use cookies to serve and measure ads, as described in the [privacy policy](/privacy). The ad code is a third-party script on the page, but Intera Tools never passes your files to it, and the tools don't depend on it.",
         ],
       },
@@ -126,7 +127,7 @@ const guide: Record<Locale, GuideContent> = {
     faq: [
       {
         q: "If nothing is uploaded, why does the Network tab show requests while I use a tool?",
-        a: "Those are code files being downloaded (for example the PDF renderer the first time you open a PDF), `blob:` entries that refer to data in memory, the small anonymous usage event, and ad requests. None of them carry your file. Compare their sizes with the size of your file.",
+        a: "Those are code files being downloaded (for example the PDF renderer the first time you open a PDF), `blob:` entries that refer to data in memory, the small anonymous usage event, Cloudflare's page analytics and ad requests. None of them carry your file. Compare their sizes with the size of your file.",
       },
       {
         q: "Can the site see my files after I close the tab?",
@@ -140,6 +141,14 @@ const guide: Record<Locale, GuideContent> = {
         q: "Does using an ad blocker break the tools?",
         a: "The tools don't depend on the ad script, so they keep working when ads are blocked.",
       },
+    ],
+    sources: [
+      { label: "MDN: HTMLCanvasElement.toBlob()", url: "https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/toBlob" },
+      { label: "Can I use: WebP in canvas toBlob()", url: "https://caniuse.com/mdn-api_htmlcanvaselement_toblob_type_parameter_webp" },
+      { label: "Can I use: HEIF/HEIC image format", url: "https://caniuse.com/heif" },
+      { label: "pdf-lib: encryption handling (README)", url: "https://github.com/Hopding/pdf-lib#encryption-handling" },
+      { label: "Cloudflare Web Analytics", url: "https://www.cloudflare.com/web-analytics/" },
+      { label: "Cloudflare docs: Web Analytics dimensions", url: "https://developers.cloudflare.com/web-analytics/data-metrics/dimensions/" },
     ],
   },
 
@@ -193,7 +202,7 @@ const guide: Record<Locale, GuideContent> = {
         items: [
           { title: "개발자 도구 열기", body: "PC의 Chrome, Edge, Firefox에서 F12(Mac은 Cmd+Option+I)를 누르고 **네트워크(Network)** 탭을 엽니다. 지우기 버튼을 눌러 목록을 비웁니다." },
           { title: "파일 처리하기", body: "용량으로 알아보기 쉬운 파일, 예를 들어 5MB짜리 PDF를 넣고 도구를 실행합니다." },
-          { title: "목록 살펴보기", body: "크기순으로 정렬하거나 요청·응답 크기를 확인합니다. 업로드가 있다면 내 파일과 비슷한 크기의 요청이 보여야 합니다. Intera Tools에서는 코드 파일, `blob:`으로 시작하는 항목(네트워크 전송이 아닌 로컬 메모리), `/api/events`로 가는 수백 바이트짜리 작은 POST 요청, 그리고 Google 도메인으로 가는 광고 관련 요청 정도가 보입니다." },
+          { title: "목록 살펴보기", body: "크기순으로 정렬하거나 요청·응답 크기를 확인합니다. 업로드가 있다면 내 파일과 비슷한 크기의 요청이 보여야 합니다. Intera Tools에서는 코드 파일, `blob:`으로 시작하는 항목(네트워크 전송이 아닌 로컬 메모리), `/api/events`로 가는 수백 바이트짜리 작은 POST 요청, Cloudflare의 페이지 분석 요청, 그리고 Google 도메인으로 가는 광고 관련 요청 정도가 보입니다." },
         ],
       },
       {
@@ -214,10 +223,11 @@ const guide: Record<Locale, GuideContent> = {
       {
         type: "ul",
         items: [
-          "**익명 사용 이벤트.** 도구를 열었는지, 파일을 추가했거나 거부됐는지, 처리를 시작·완료·실패·취소했는지, 결과를 내려받았는지, 다른 도구로 이어서 작업했는지, 홈 화면 검색에 결과가 있었는지 여부입니다. 각 이벤트에는 이벤트 이름, 시각, 페이지 언어, 창 너비로 구분한 기기 유형(모바일·태블릿·데스크톱)이 들어갑니다. 이벤트에 따라 도구 이름, 파일 개수, 입력 용량 구간(예: '1–5MB'), 처리 시간, 오류 코드(예: 'encrypted'), 파일을 추가한 방식(선택, 끌어다 놓기, 붙여 넣기, 다른 도구에서 넘겨받기)이 포함됩니다.",
+          "**익명 사용 이벤트.** 도구나 가이드를 열었는지, 파일을 추가했거나 거부됐는지, 처리를 시작·완료·실패·취소했는지, 결과를 내려받았는지, 다른 도구로 이어서 작업했는지, 홈 화면 검색에 결과가 있었는지 여부입니다. 각 이벤트에는 이벤트 이름, 시각, 페이지 언어, 창 너비로 구분한 기기 유형(모바일·태블릿·데스크톱)이 들어갑니다. 이벤트에 따라 도구 이름, 파일 개수, 입력 용량 구간(예: '1–5MB'), 처리 시간, 오류 코드(예: 'encrypted'), 파일을 추가한 방식(선택, 끌어다 놓기, 붙여 넣기, 다른 도구에서 넘겨받기)이 포함됩니다.",
           "**오류 보고.** 스크립트 오류가 나면 고장 난 도구를 찾기 위해 오류 메시지를 160자로 잘라 보냅니다.",
           "**절대 포함되지 않는 것:** 파일 이름, 파일 내용, 이미지 픽셀, PDF 텍스트, QR 코드 내용·워터마크 문구·검색어처럼 직접 입력한 내용. 이벤트에는 쿠키나 식별자를 쓰지 않습니다. 서버는 정해진 항목만 남기며 IP 주소와 브라우저 정보(User-Agent)는 함께 기록하지 않습니다.",
           "브라우저에서 Do Not Track이나 Global Privacy Control을 켜 두었다면 **이벤트를 전혀 보내지 않습니다.**",
+          "**호스팅 업체의 페이지 분석.** 호스팅 업체인 Cloudflare가 Web Analytics 스크립트를 넣어 페이지 조회, 유입 페이지, 브라우저 종류, 페이지 로딩 시간을 쿠키 없이 집계합니다. 이 스크립트는 페이지에서 동작할 뿐 파일에는 접근하지 않습니다.",
           "**광고.** 사이트 운영비를 충당하기 위해 페이지에 Google 애드센스가 로드됩니다. Google은 [개인정보처리방침](/privacy)에 설명된 대로 광고 게재와 측정에 쿠키를 쓸 수 있습니다. 광고 코드는 페이지에 들어 있는 외부 스크립트이지만 Intera Tools는 파일을 이 코드에 넘기지 않으며, 도구가 광고 코드에 의존하지도 않습니다.",
         ],
       },
@@ -267,7 +277,7 @@ const guide: Record<Locale, GuideContent> = {
     faq: [
       {
         q: "업로드하지 않는데 왜 도구를 쓰는 동안 네트워크 탭에 요청이 보이나요?",
-        a: "코드 파일을 내려받는 요청(예: PDF를 처음 열 때 PDF 렌더러), 메모리 속 데이터를 가리키는 `blob:` 항목, 작은 익명 사용 이벤트, 광고 요청입니다. 어느 것도 파일을 담고 있지 않습니다. 각 요청 크기를 내 파일 크기와 비교해 보세요.",
+        a: "코드 파일을 내려받는 요청(예: PDF를 처음 열 때 PDF 렌더러), 메모리 속 데이터를 가리키는 `blob:` 항목, 작은 익명 사용 이벤트, Cloudflare 페이지 분석, 광고 요청입니다. 어느 것도 파일을 담고 있지 않습니다. 각 요청 크기를 내 파일 크기와 비교해 보세요.",
       },
       {
         q: "탭을 닫은 뒤에도 사이트가 제 파일을 볼 수 있나요?",
@@ -281,6 +291,14 @@ const guide: Record<Locale, GuideContent> = {
         q: "광고 차단기를 쓰면 도구가 작동하지 않나요?",
         a: "도구는 광고 코드에 의존하지 않으므로 광고를 차단해도 그대로 작동합니다.",
       },
+    ],
+    sources: [
+      { label: "MDN: HTMLCanvasElement.toBlob()", url: "https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/toBlob" },
+      { label: "Can I use: 캔버스 toBlob()의 WebP 지원", url: "https://caniuse.com/mdn-api_htmlcanvaselement_toblob_type_parameter_webp" },
+      { label: "Can I use: HEIF/HEIC 이미지 형식 지원", url: "https://caniuse.com/heif" },
+      { label: "pdf-lib: 암호화 문서 처리(README)", url: "https://github.com/Hopding/pdf-lib#encryption-handling" },
+      { label: "Cloudflare Web Analytics 소개", url: "https://www.cloudflare.com/web-analytics/" },
+      { label: "Cloudflare 문서: Web Analytics 집계 항목", url: "https://developers.cloudflare.com/web-analytics/data-metrics/dimensions/" },
     ],
   },
 };

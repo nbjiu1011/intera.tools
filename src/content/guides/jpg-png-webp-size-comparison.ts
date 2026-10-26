@@ -18,7 +18,7 @@ const guide: Record<Locale, GuideContent> = {
     takeaways: [
       "For photos, WebP at quality 75 averaged **44 KB** against **61 KB** for JPG at 75 and **823 KB** for lossless PNG.",
       "Same quality number ≠ same quality: WebP and JPG use different scales, so compare by eye, not by the slider value.",
-      "Re-saving an already optimized PNG in a browser made it **30–54% larger** — PNG is the wrong choice for photos and needs a palette to shrink.",
+      "Re-saving an already optimized PNG in Chrome made it **30–54% larger** — PNG is the wrong choice for photos and needs a palette to shrink.",
       "For a flat logo with transparency, 256-color PNG (25 KB) and WebP (14–19 KB) beat lossless PNG (412 KB) by a wide margin.",
     ],
     body: [
@@ -134,8 +134,12 @@ const guide: Record<Locale, GuideContent> = {
       },
       {
         q: "Do these numbers apply to Safari?",
-        a: "JPG and PNG sizes will be similar but not identical, because Safari uses its own encoders. Safari can display WebP but can’t save WebP from a web page, so Intera’s WebP options are unavailable there.",
+        a: "Not exactly. We ran the same test in WebKit, the engine behind Safari: JPG files at the same quality setting came out about 1.5× (quality 90) to 1.9× (quality 75) larger than in Chrome, and lossless PNG about 11% smaller. Firefox was close to Chrome except for JPG at quality 90 (about 20% larger). PNG-8 was identical everywhere, because Intera’s own code computes it. Safari can display WebP but can’t save it from a web page, so Intera’s WebP options are unavailable there.",
       },
+    ],
+    sources: [
+      { label: "Kodak Lossless True Color Image Suite (test images)", url: "https://r0k.us/graphics/kodak/" },
+      { label: "Can I use – canvas toBlob() WebP encoding support", url: "https://caniuse.com/mdn-api_htmlcanvaselement_toblob_type_parameter_webp" },
     ],
   },
   ko: {
@@ -148,7 +152,7 @@ const guide: Record<Locale, GuideContent> = {
     takeaways: [
       "사진은 품질 75 기준 WebP가 평균 **44KB**, JPG가 **61KB**, 무손실 PNG가 **823KB**였습니다.",
       "품질 숫자가 같다고 화질이 같지는 않습니다. WebP와 JPG는 품질 척도가 다르므로 숫자가 아니라 눈으로 비교하세요.",
-      "이미 최적화된 PNG를 브라우저에서 다시 저장하면 **30~54% 커졌습니다**. 사진에 PNG는 맞지 않고, PNG를 줄이려면 팔레트 방식이 필요합니다.",
+      "이미 최적화된 PNG를 Chrome에서 다시 저장하면 **30~54% 커졌습니다**. 사진에 PNG는 맞지 않고, PNG를 줄이려면 팔레트 방식이 필요합니다.",
       "투명 배경 로고는 256색 PNG(25KB)와 WebP(14~19KB)가 무손실 PNG(412KB)보다 훨씬 작았습니다.",
     ],
     body: [
@@ -264,8 +268,12 @@ const guide: Record<Locale, GuideContent> = {
       },
       {
         q: "Safari에서도 같은 결과가 나오나요?",
-        a: "Safari는 자체 인코더를 쓰므로 JPG와 PNG 용량이 비슷하지만 똑같지는 않습니다. Safari는 WebP를 표시할 수는 있지만 웹 페이지에서 WebP로 저장할 수 없어, Intera의 WebP 옵션을 쓸 수 없습니다.",
+        a: "그대로 적용되지는 않습니다. Safari의 엔진인 WebKit에서 같은 실험을 해 보니, 같은 품질 값의 JPG가 Chrome보다 약 1.5배(품질 90)~1.9배(품질 75) 컸고 무손실 PNG는 약 11% 작았습니다. Firefox는 품질 90 JPG(약 20% 큼)를 빼면 Chrome과 비슷했습니다. PNG-8은 Intera의 자체 코드로 만들기 때문에 모든 브라우저에서 똑같았습니다. Safari는 WebP를 표시할 수는 있지만 웹 페이지에서 WebP로 저장할 수 없어, Intera의 WebP 옵션을 쓸 수 없습니다.",
       },
+    ],
+    sources: [
+      { label: "Kodak Lossless True Color Image Suite (테스트 이미지)", url: "https://r0k.us/graphics/kodak/" },
+      { label: "Can I use – 캔버스 toBlob() WebP 인코딩 지원 현황", url: "https://caniuse.com/mdn-api_htmlcanvaselement_toblob_type_parameter_webp" },
     ],
   },
 };

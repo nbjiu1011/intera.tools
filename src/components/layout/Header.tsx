@@ -4,6 +4,7 @@ import { ArrowRight, ChevronDown, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { useI18n } from "@/components/I18nProvider";
 import { Logo } from "@/components/ui/Logo";
 import { ToolIcon } from "@/components/ui/ToolIcon";
@@ -145,7 +146,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-bg/95 backdrop-blur supports-[backdrop-filter]:bg-bg/85">
       <div className="mx-auto flex h-16 max-w-[1240px] items-center gap-2 px-4 sm:px-6 lg:px-8">
-        <Link href={`/${locale}`} className="mr-4 shrink-0 rounded-md" aria-label="Intera Tools home">
+        <Link href={`/${locale}`} className="mr-4 shrink-0 rounded-md">
           <Logo />
         </Link>
 
@@ -199,43 +200,46 @@ export function Header() {
         </div>
       </div>
 
-      {mobileOpen && (
-        <div className="fixed inset-0 z-50 lg:hidden" id="mobile-menu" role="dialog" aria-modal="true" aria-label={dict.nav.menu}>
-          <button type="button" aria-label={dict.nav.close} className="absolute inset-0 bg-black/40" onClick={() => setMobileOpen(false)} />
-          <div className="absolute inset-y-0 right-0 flex w-[min(420px,100%)] animate-[fade-up_.2s_ease] flex-col bg-elevated shadow-pop">
-            <div className="flex h-16 items-center justify-between border-b border-line px-4">
-              <Logo />
-              <button type="button" className="grid size-10 place-items-center rounded-md hover:bg-muted" aria-label={dict.nav.close} onClick={() => setMobileOpen(false)}>
-                <X className="size-[22px]" />
-              </button>
-            </div>
-            <div className="flex-1 overflow-y-auto">
-              {menus.map((m) => (
-                <details key={m.id} className="group border-b border-line" open={m.id === "tools"}>
-                  <summary className="flex cursor-pointer list-none items-center justify-between px-4 py-4 text-base font-semibold text-ink [&::-webkit-details-marker]:hidden">
-                    {m.label}
-                    <ChevronDown className="size-5 text-ink-3 transition group-open:rotate-180" />
-                  </summary>
-                  <div className="px-4 pb-5">
-                    {m.id === "tools" ? <ToolsMenu onNavigate={() => setMobileOpen(false)} /> : m.panel}
-                  </div>
-                </details>
-              ))}
-              <div className="grid gap-1 px-4 py-4">
-                <Link href={`/${locale}/about`} className="rounded-md py-2 font-medium text-ink-2">
-                  {dict.nav.about}
-                </Link>
-                <Link href={`/${locale}/contact`} className="rounded-md py-2 font-medium text-ink-2">
-                  {dict.nav.contact}
-                </Link>
+      {/* Portaled: the header's backdrop-filter would otherwise trap position:fixed inside it. */}
+      {mobileOpen &&
+        createPortal(
+          <div className="fixed inset-0 z-50 lg:hidden" id="mobile-menu" role="dialog" aria-modal="true" aria-label={dict.nav.menu}>
+            <button type="button" aria-label={dict.nav.close} className="absolute inset-0 bg-black/40" onClick={() => setMobileOpen(false)} />
+            <div className="absolute inset-y-0 right-0 flex w-[min(420px,100%)] animate-[fade-up_.2s_ease] flex-col bg-elevated shadow-pop">
+              <div className="flex h-16 items-center justify-between border-b border-line px-4">
+                <Logo />
+                <button type="button" className="grid size-10 place-items-center rounded-md hover:bg-muted" aria-label={dict.nav.close} onClick={() => setMobileOpen(false)}>
+                  <X className="size-[22px]" />
+                </button>
+              </div>
+              <div className="flex-1 overflow-y-auto">
+                {menus.map((m) => (
+                  <details key={m.id} className="group border-b border-line" open={m.id === "tools"}>
+                    <summary className="flex cursor-pointer list-none items-center justify-between px-4 py-4 text-base font-semibold text-ink [&::-webkit-details-marker]:hidden">
+                      {m.label}
+                      <ChevronDown className="size-5 text-ink-3 transition group-open:rotate-180" />
+                    </summary>
+                    <div className="px-4 pb-5">
+                      {m.id === "tools" ? <ToolsMenu onNavigate={() => setMobileOpen(false)} /> : m.panel}
+                    </div>
+                  </details>
+                ))}
+                <div className="grid gap-1 px-4 py-4">
+                  <Link href={`/${locale}/about`} className="rounded-md py-2 font-medium text-ink-2">
+                    {dict.nav.about}
+                  </Link>
+                  <Link href={`/${locale}/contact`} className="rounded-md py-2 font-medium text-ink-2">
+                    {dict.nav.contact}
+                  </Link>
+                </div>
+              </div>
+              <div className="flex items-center justify-between border-t border-line px-4 py-3">
+                <LocaleSwitcher align="left" up />
               </div>
             </div>
-            <div className="flex items-center justify-between border-t border-line px-4 py-3">
-              <LocaleSwitcher align="left" up />
-            </div>
-          </div>
-        </div>
-      )}
+          </div>,
+          document.body,
+        )}
     </header>
   );
 }

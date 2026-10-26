@@ -266,8 +266,8 @@ export function RejectionNotice({ rejections, onDismiss }: { rejections: Rejecti
           <p className="text-sm font-semibold text-danger">{dict.workspace.rejected}</p>
           <ul className="mt-1 grid gap-0.5 text-sm text-ink-2">
             {rejections.slice(0, 5).map((r, i) => (
-              <li key={i} className="truncate">
-                <span className="font-medium text-ink">{r.name}</span> — {format(dict.errors[r.code], r.vars)}
+              <li key={i} className="break-words">
+                <span className="font-medium break-all text-ink">{r.name}</span> — {format(dict.errors[r.code], r.vars)}
               </li>
             ))}
             {rejections.length > 5 && <li>+{rejections.length - 5}</li>}

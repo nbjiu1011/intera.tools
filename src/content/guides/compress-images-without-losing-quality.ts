@@ -71,7 +71,7 @@ const guide: Record<Locale, GuideContent> = {
       {
         type: "note",
         tone: "info",
-        text: "Compression removes metadata such as camera details and GPS location, because the pixels are re-encoded into a new file. That is usually a privacy plus, but keep your originals if you need the capture date or location later.",
+        text: "Compression removes metadata such as camera details and GPS location, because the pixels are re-encoded into a new file (a file marked “original kept” is your untouched original, metadata included). That is usually a privacy plus, but keep your originals if you need the capture date or location later.",
       },
 
       { type: "h2", text: "When WebP helps" },
@@ -81,7 +81,7 @@ const guide: Record<Locale, GuideContent> = {
       },
       {
         type: "p",
-        text: "WebP is not always the right output. Some upload forms, marketplaces and older programs accept only JPG or PNG, and some browsers, Safari in particular, may not be able to create WebP files; in that case the toggle reads “This browser can’t create WebP files”. If you are unsure which format wins for a particular image, test it rather than guessing.",
+        text: "WebP is not always the right output. Some upload forms, marketplaces and older programs accept only JPG or PNG, and Safari can’t create WebP files; there the toggle reads “This browser can’t create WebP files”. [WebP format explained](/guides/webp-format-explained) covers when to avoid it. If you are unsure which format wins for a particular image, test it rather than guessing.",
       },
       {
         type: "tool",
@@ -135,6 +135,10 @@ const guide: Record<Locale, GuideContent> = {
         q: "Can I undo compression later?",
         a: "No. Lossy compression permanently discards detail, and saving the file again at a higher quality cannot bring it back. Keep your originals and treat compressed copies as exports.",
       },
+    ],
+    sources: [
+      { label: "Google for Developers – WebP compression study figures", url: "https://developers.google.com/speed/webp" },
+      { label: "Can I use – canvas toBlob() WebP encoding support", url: "https://caniuse.com/mdn-api_htmlcanvaselement_toblob_type_parameter_webp" },
     ],
   },
 
@@ -207,7 +211,7 @@ const guide: Record<Locale, GuideContent> = {
       {
         type: "note",
         tone: "info",
-        text: "압축하면 픽셀을 새 파일로 다시 인코딩하기 때문에 카메라 정보, GPS 위치 같은 메타데이터가 사라집니다. 개인정보 측면에서는 장점이지만, 촬영 날짜나 장소가 나중에 필요하다면 원본을 꼭 보관해 두세요.",
+        text: "압축하면 픽셀을 새 파일로 다시 인코딩하기 때문에 카메라 정보, GPS 위치 같은 메타데이터가 사라집니다(‘원본 유지’로 표시된 파일은 메타데이터까지 그대로인 원본입니다). 개인정보 측면에서는 장점이지만, 촬영 날짜나 장소가 나중에 필요하다면 원본을 꼭 보관해 두세요.",
       },
 
       { type: "h2", text: "WebP가 유리한 경우" },
@@ -217,7 +221,7 @@ const guide: Record<Locale, GuideContent> = {
       },
       {
         type: "p",
-        text: "그렇다고 항상 WebP가 정답은 아닙니다. JPG나 PNG만 받는 업로드 양식, 오픈마켓, 오래된 프로그램이 아직 있고, Safari 등 일부 브라우저는 WebP 파일을 만들지 못할 수 있습니다. 이 경우 토글 아래에 “이 브라우저는 WebP 파일을 만들 수 없습니다”라고 표시됩니다. 어떤 형식이 더 작을지 확신이 서지 않으면 짐작하지 말고 직접 비교해 보세요.",
+        text: "그렇다고 항상 WebP가 정답은 아닙니다. JPG나 PNG만 받는 업로드 양식, 오픈마켓, 오래된 프로그램이 아직 있고, Safari는 WebP 파일을 만들지 못합니다. 이 경우 토글 아래에 “이 브라우저는 WebP 파일을 만들 수 없습니다”라고 표시됩니다. WebP를 피해야 할 경우는 [WebP 형식 알아보기](/guides/webp-format-explained)에서 다룹니다. 어떤 형식이 더 작을지 확신이 서지 않으면 짐작하지 말고 직접 비교해 보세요.",
       },
       {
         type: "tool",
@@ -271,6 +275,10 @@ const guide: Record<Locale, GuideContent> = {
         q: "압축한 이미지를 원래대로 되돌릴 수 있나요?",
         a: "없습니다. 손실 압축으로 버려진 정보는 높은 품질로 다시 저장해도 돌아오지 않습니다. 원본은 따로 보관하고, 압축본은 내보내기용 사본으로 생각하세요.",
       },
+    ],
+    sources: [
+      { label: "Google 개발자 문서 – WebP 압축 연구 수치", url: "https://developers.google.com/speed/webp" },
+      { label: "Can I use – 캔버스 toBlob() WebP 인코딩 지원 현황", url: "https://caniuse.com/mdn-api_htmlcanvaselement_toblob_type_parameter_webp" },
     ],
   },
 };

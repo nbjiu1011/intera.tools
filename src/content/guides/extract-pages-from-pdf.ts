@@ -110,7 +110,7 @@ const guide: Record<Locale, GuideContent> = {
       { type: "h2", text: "Removing pages instead: Organize PDF" },
       {
         type: "p",
-        text: "If what you really want is the same PDF without pages 4 and 7, [Organize PDF](/organize-pdf) is more direct. Load the file, use **Delete page** on the pages you don't want (**Restore page** brings one back) and click **Save PDF**. You can also drag pages into a new order, use **Rotate page**, **Insert blank page**, or **Add PDF** to bring in pages from another file.",
+        text: "If what you really want is the same PDF without pages 4 and 7, [Organize PDF](/organize-pdf) is more direct. Load the file, use **Delete page** on the pages you don't want (**Reset changes** undoes all your edits) and click **Save PDF**. You can also drag pages into a new order, use **Rotate page**, **Insert blank page**, or **Add PDF** to bring in pages from another file.",
       },
       {
         type: "p",
@@ -153,6 +153,10 @@ const guide: Record<Locale, GuideContent> = {
         q: "Can I extract pages from a password-protected PDF?",
         a: "Not directly. Encrypted PDFs can't be opened by the tool. Save an unprotected copy in a PDF app where you know the password, then split that copy.",
       },
+    ],
+    sources: [
+      { label: "pdf-lib API: PDFDocument.copyPages", url: "https://pdf-lib.js.org/docs/api/classes/pdfdocument" },
+      { label: "pdf-lib: encryption handling (README)", url: "https://github.com/Hopding/pdf-lib#encryption-handling" },
     ],
   },
   ko: {
@@ -263,7 +267,7 @@ const guide: Record<Locale, GuideContent> = {
       { type: "h2", text: "페이지를 지우는 게 목적이라면: PDF 페이지 정리" },
       {
         type: "p",
-        text: "실제로 원하는 것이 '4페이지와 7페이지만 뺀 같은 PDF'라면 [PDF 페이지 정리](/organize-pdf)가 더 간단합니다. 파일을 불러와 필요 없는 페이지에서 **페이지 삭제**를 누르고(**페이지 복원**으로 되살릴 수 있습니다) **PDF 저장**을 누르면 됩니다. 페이지를 끌어 순서를 바꾸거나, **페이지 회전**, **빈 페이지 삽입**, 다른 파일의 페이지를 가져오는 **PDF 추가**도 쓸 수 있습니다.",
+        text: "실제로 원하는 것이 '4페이지와 7페이지만 뺀 같은 PDF'라면 [PDF 페이지 정리](/organize-pdf)가 더 간단합니다. 파일을 불러와 필요 없는 페이지에서 **페이지 삭제**를 누르고(**변경 취소**로 모든 변경을 되돌릴 수 있습니다) **PDF 저장**을 누르면 됩니다. 페이지를 끌어 순서를 바꾸거나, **페이지 회전**, **빈 페이지 삽입**, 다른 파일의 페이지를 가져오는 **PDF 추가**도 쓸 수 있습니다.",
       },
       {
         type: "p",
@@ -306,6 +310,10 @@ const guide: Record<Locale, GuideContent> = {
         q: "비밀번호가 걸린 PDF에서도 페이지를 뽑을 수 있나요?",
         a: "바로는 안 됩니다. 암호화된 PDF는 열 수 없습니다. 비밀번호를 아는 PDF 프로그램에서 보호가 해제된 사본을 저장한 뒤 그 사본을 분할하세요.",
       },
+    ],
+    sources: [
+      { label: "pdf-lib API: PDFDocument.copyPages", url: "https://pdf-lib.js.org/docs/api/classes/pdfdocument" },
+      { label: "pdf-lib: 암호화 문서 처리(README)", url: "https://github.com/Hopding/pdf-lib#encryption-handling" },
     ],
   },
 };
