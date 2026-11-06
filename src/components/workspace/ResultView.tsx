@@ -13,7 +13,7 @@ import { toolMap, type ToolSlug } from "@/lib/tools";
 import type { Failure, Output } from "./job";
 
 const continueTargets: Record<Output["kind"], ToolSlug[]> = {
-  image: ["compress-image", "resize-image", "crop-image", "convert-image", "watermark-image", "rotate-image", "jpg-to-pdf"],
+  image: ["compress-image", "resize-image", "jpg-to-pdf", "crop-image", "convert-image", "watermark-image", "rotate-image"],
   pdf: ["merge-pdf", "split-pdf", "organize-pdf", "rotate-pdf", "pdf-to-jpg"],
 };
 

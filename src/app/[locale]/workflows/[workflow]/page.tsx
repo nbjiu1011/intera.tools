@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { GuideCard } from "@/components/home/GuideCard";
 import { ToolCard } from "@/components/home/ToolCard";
+import { TestedSection } from "@/components/tool/TestedSection";
 import { FavoriteButton, ToolView } from "@/components/tool/ToolView";
 import { AdSlot } from "@/components/ui/AdSlot";
 import { SectionHeader } from "@/components/ui/SectionHeader";
@@ -125,6 +126,8 @@ export default async function WorkflowPage({ params }: PageProps<"/[locale]/work
             ))}
           </ul>
         </section>
+
+        {c.tested && <TestedSection tested={c.tested} locale={locale} />}
       </div>
 
       <AdSlot placement="tool" className="mt-20 px-4" />

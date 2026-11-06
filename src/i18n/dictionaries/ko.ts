@@ -112,6 +112,7 @@ export const ko: Dict = {
     comparisons: "비교",
     "file-formats": "파일 형식",
     troubleshooting: "문제 해결",
+    notes: "운영 노트",
   },
   workflowSteps: {
     select: "선택",

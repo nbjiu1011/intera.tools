@@ -40,6 +40,16 @@ const content: Record<Locale, WorkflowContent> = {
       "With shrinking on, PNG images are converted to JPG, so transparent areas become white.",
       "Very large photos can exceed the canvas limit on iPhone and iPad (about 16.7 megapixels).",
     ],
+    tested: {
+      title: "Shrinking on vs. off: measured",
+      intro: "Five large camera photos (33.81 MB of JPGs, 10.6–19.3 megapixels) made into one A4 PDF.",
+      head: ["Setting", "PDF size", "Largest image in the PDF"],
+      rows: [
+        ["Shrink images for a smaller PDF: off", "33.81 MB", "Original size (up to 5385 × 3590)"],
+        ["Shrink images for a smaller PDF: on", "1.55 MB", "2000 px on the long edge"],
+      ],
+      note: "With shrinking on, the PDF was about 22 times smaller. A 2000-pixel photo spread across a landscape A4 page (297 mm) works out to about 170 pixels per inch — clear on screen and fine for everyday printouts, though below the 300 DPI often used for photo prints. Measured on 6 November 2026 in Chrome 156 (macOS) with five Wikimedia Commons featured pictures; see [image compression levels tested](/guides/image-compression-levels-tested) for the photos.",
+    },
     faq: [
       {
         q: "How big will my PDF be?",
@@ -97,6 +107,16 @@ const content: Record<Locale, WorkflowContent> = {
       "이미지 축소를 켜면 PNG도 JPG로 바뀌므로 투명한 부분은 흰색이 됩니다.",
       "아주 큰 사진은 iPhone·iPad의 캔버스 한도(약 1,670만 화소)를 넘을 수 있습니다.",
     ],
+    tested: {
+      title: "이미지 축소를 켰을 때와 껐을 때, 직접 재 봤습니다",
+      intro: "큰 카메라 사진 5장(JPG 합계 33.81MB, 1,060만~1,930만 화소)으로 A4 PDF 하나를 만들었습니다.",
+      head: ["설정", "PDF 용량", "PDF 안의 가장 큰 이미지"],
+      rows: [
+        ["PDF 용량을 줄이도록 이미지 축소: 끔", "33.81MB", "원본 크기(최대 5385 × 3590)"],
+        ["PDF 용량을 줄이도록 이미지 축소: 켬", "1.55MB", "긴 변 2000px"],
+      ],
+      note: "이미지 축소를 켜면 PDF가 약 22분의 1로 작아졌습니다. 가로 2000px 사진을 가로 방향 A4(297mm)에 꽉 채우면 인치당 약 170픽셀로, 화면에서 보거나 일반 문서로 인쇄하기에는 충분하지만 사진 인화에 흔히 쓰는 300 DPI보다는 낮습니다. 2026년 11월 6일 Chrome 156(macOS)에서 위키미디어 공용 우수 사진 5장으로 측정했으며, 사진 정보는 [이미지 압축 강도 실측 비교](/guides/image-compression-levels-tested)에 있습니다.",
+    },
     faq: [
       {
         q: "PDF 용량은 얼마나 되나요?",

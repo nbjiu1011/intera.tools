@@ -52,6 +52,7 @@ const pages = {
         title: "Update history",
         paragraphs: ["Major changes to the service:"],
         bullets: [
+          "6 November 2026 — Measured test results on the Compress Image, Resize Image, JPG to PDF, PDF to JPG and Photos to PDF pages, and six new guides: passport photo sizes, print resolution, resume PDFs, scanning documents with a phone, reducing PDF size, and compression levels tested. New Maker's notes section with a test log of every tool and the rules the site is run by.",
           "26 October 2026 — Intera 2.0: workflows (e-commerce images, social media images, photos to PDF, web image optimization), a guides section, the Image Format Comparison tool, saved favorites and workflow presets, and a redesigned, simpler interface.",
           "16 October 2026 — Launch with 16 image, PDF and QR code tools in English and Korean.",
         ],

@@ -383,6 +383,17 @@ const content = {
       "With Fit to image, one pixel becomes one PDF point (1/72 inch), so a 4000-pixel-wide photo makes a page over 55 inches wide; choose A4 or US Letter for printing.",
       "On A4 and US Letter, each image is scaled to fit inside the margins (20 pt for Small, 48 pt for Large), which also enlarges small images.",
     ],
+    tested: {
+      title: "PDF size with large photos: measured",
+      intro: "Five camera photos (33.81 MB of JPGs, 10.6–19.3 megapixels) placed on A4 pages.",
+      head: ["How the PDF was made", "PDF size"],
+      rows: [
+        ["JPG to PDF (this tool): JPGs embedded unchanged", "33.81 MB"],
+        ["Photos to PDF Document workflow, shrinking off", "33.81 MB"],
+        ["Photos to PDF Document workflow, shrinking on (long edge 2000 px, JPG quality 80)", "1.55 MB"],
+      ],
+      note: "JPG to PDF keeps your JPGs byte-for-byte, so the PDF is as large as the photos. If the PDF has to be emailed or uploaded, shrink the photos first or use the [Photos to PDF Document](/workflows/images-to-pdf-document) workflow. Measured on 6 November 2026 in Chrome 156 (macOS) with five Wikimedia Commons featured pictures.",
+    },
     faq: [
       {
         q: "Which image formats can I convert to PDF?",
@@ -464,6 +475,17 @@ const content = {
       "Images are named after the PDF with the page number, such as report-page-03.jpg in a document of 10 or more pages.",
       "On iPhone and iPad a rendered page cannot exceed about 16.7 megapixels, so large-format pages at 300 DPI may fail, and many pages at 300 DPI need a lot of memory.",
     ],
+    tested: {
+      title: "What each resolution produces: measured",
+      intro: "One A4 PDF with a text-heavy page and a page with a large photo, converted to JPG at each resolution.",
+      head: ["Resolution", "Image size (A4)", "Text page", "Photo page"],
+      rows: [
+        ["72 DPI · small", "595 × 841 px", "159 KB", "86 KB"],
+        ["150 DPI · standard", "1240 × 1753 px", "500 KB", "349 KB"],
+        ["300 DPI · print", "2480 × 3507 px", "1.26 MB", "1.25 MB"],
+      ],
+      note: "Doubling the DPI doubles the width and height, so the pixel count roughly quadruples. 150 DPI is enough to read text on screen; use 300 DPI for printing. Measured on 6 November 2026 in Chrome 156 (macOS), JPG quality 90.",
+    },
     faq: [
       {
         q: "What resolution should I use?",

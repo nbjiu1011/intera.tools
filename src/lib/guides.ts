@@ -2,7 +2,7 @@ import type { GuideCategory } from "@/content/types";
 import type { ToolSlug } from "./tools";
 import type { WorkflowSlug } from "./workflows";
 
-export const guideCategories: GuideCategory[] = ["tutorials", "comparisons", "file-formats", "troubleshooting"];
+export const guideCategories: GuideCategory[] = ["tutorials", "comparisons", "file-formats", "troubleshooting", "notes"];
 
 export type GuideSlug =
   | "compress-images-without-losing-quality"
@@ -17,7 +17,15 @@ export type GuideSlug =
   | "webp-format-explained"
   | "browser-based-file-processing"
   | "image-wont-open-or-convert"
-  | "pdf-wont-open-or-merge";
+  | "pdf-wont-open-or-merge"
+  | "passport-photo-size"
+  | "print-resolution-dpi"
+  | "resume-pdf-upload-size"
+  | "scan-documents-to-pdf-with-phone"
+  | "reduce-pdf-file-size"
+  | "image-compression-levels-tested"
+  | "testing-every-tool"
+  | "why-no-upload-no-signup";
 
 export type GuideDef = {
   slug: GuideSlug;
@@ -127,6 +135,66 @@ export const guides: GuideDef[] = [
     tools: ["merge-pdf", "split-pdf", "organize-pdf"],
     published: "2026-10-26",
     updated: "2026-10-26",
+  },
+  {
+    slug: "image-compression-levels-tested",
+    category: "comparisons",
+    tools: ["compress-image", "image-format-comparison", "resize-image"],
+    workflows: ["web-image-optimization"],
+    published: "2026-11-06",
+    updated: "2026-11-06",
+  },
+  {
+    slug: "passport-photo-size",
+    category: "tutorials",
+    tools: ["crop-image", "resize-image", "compress-image"],
+    published: "2026-11-06",
+    updated: "2026-11-06",
+  },
+  {
+    slug: "print-resolution-dpi",
+    category: "file-formats",
+    tools: ["resize-image", "pdf-to-jpg", "jpg-to-pdf"],
+    published: "2026-11-06",
+    updated: "2026-11-06",
+  },
+  {
+    slug: "resume-pdf-upload-size",
+    category: "tutorials",
+    tools: ["merge-pdf", "organize-pdf", "compress-image"],
+    workflows: ["images-to-pdf-document"],
+    published: "2026-11-06",
+    updated: "2026-11-06",
+  },
+  {
+    slug: "scan-documents-to-pdf-with-phone",
+    category: "tutorials",
+    tools: ["jpg-to-pdf", "crop-image", "rotate-image"],
+    workflows: ["images-to-pdf-document"],
+    published: "2026-11-06",
+    updated: "2026-11-06",
+  },
+  {
+    slug: "reduce-pdf-file-size",
+    category: "troubleshooting",
+    tools: ["split-pdf", "organize-pdf", "pdf-to-jpg"],
+    workflows: ["images-to-pdf-document"],
+    published: "2026-11-06",
+    updated: "2026-11-06",
+  },
+  {
+    slug: "testing-every-tool",
+    category: "notes",
+    tools: ["split-pdf", "pdf-to-jpg", "jpg-to-pdf"],
+    published: "2026-11-06",
+    updated: "2026-11-06",
+  },
+  {
+    slug: "why-no-upload-no-signup",
+    category: "notes",
+    tools: ["merge-pdf", "compress-image", "convert-image"],
+    published: "2026-11-06",
+    updated: "2026-11-06",
   },
 ];
 

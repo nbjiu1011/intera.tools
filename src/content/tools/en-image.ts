@@ -59,6 +59,21 @@ const content = {
       "With Convert to WebP turned on, the WebP result is always used even if it is larger, and the option is unavailable in browsers that cannot create WebP files.",
       "Results keep the original file name (with a .webp extension when converted), and on iPhone and iPad images above about 16.7 megapixels cannot be processed.",
     ],
+    tested: {
+      title: "We tested it on five high-resolution photos",
+      intro: "The same five camera photos (33.81 MB in total) compressed at each level. SSIM (structural similarity) compares each result with its original: 1 means identical, and the closer to 1, the closer to the original.",
+      head: ["Photo", "Original", "Light", "Balanced", "Strong"],
+      rows: [
+        ["Coastal cliffs, 4032 × 2636", "9.22 MB", "2.55 MB", "1.80 MB", "1.38 MB"],
+        ["Leopard, 4285 × 2859", "9.74 MB", "2.58 MB", "1.78 MB", "1.33 MB"],
+        ["Outdoor sculpture, 4912 × 3264", "4.17 MB", "1.08 MB", "758 KB", "563 KB"],
+        ["Desert dune, 5385 × 3590", "6.97 MB", "2.00 MB", "1.30 MB", "991 KB"],
+        ["Storm sky, 4335 × 3137", "3.71 MB", "443 KB", "223 KB", "174 KB"],
+        ["Average SSIM", "1", "0.983", "0.975", "0.967"],
+        ["Total", "33.81 MB", "8.64 MB (−74%)", "5.85 MB (−83%)", "4.40 MB (−87%)"],
+      ],
+      note: "With **Convert to WebP** on at Balanced, the total was 4.05 MB (−88%) with an average SSIM of 0.969. A 1440 × 900 PNG screenshot went from 89 KB to 38 / 36 / 31 KB and stayed visually identical (SSIM 1.000). Measured on 6 November 2026 with this tool in Chrome 156 (macOS). Test photos: five Wikimedia Commons featured pictures (10.6–19.3 megapixels) saved by their photographers at very high JPEG quality, so savings are larger than for photos a phone has already compressed. Other browsers use other encoders: in Safari's engine, JPG output was noticeably larger in our tests. Method and photo credits: [image compression levels tested](/guides/image-compression-levels-tested).",
+    },
     faq: [
       {
         q: "Is this image compressor free?",
@@ -140,6 +155,20 @@ const content = {
       "Custom scaling ranges from 1% to 400%, and enlarging adds pixels but no real detail.",
       "Results are named with the new size, for example photo-1200x800.jpg, and EXIF data including GPS location is not kept.",
     ],
+    tested: {
+      title: "How much resizing saves: measured",
+      intro: "Five camera photos resized to a fixed width with **Keep aspect ratio** on. Resize Image saves JPGs at quality 92, so the savings come almost entirely from having fewer pixels.",
+      head: ["Photo (original)", "2560 px wide", "1920 px wide", "1280 px wide"],
+      rows: [
+        ["Coastal cliffs, 4032 × 2636 (9.22 MB)", "1.62 MB", "870 KB", "440 KB"],
+        ["Leopard, 4285 × 2859 (9.74 MB)", "1.47 MB", "737 KB", "388 KB"],
+        ["Outdoor sculpture, 4912 × 3264 (4.17 MB)", "556 KB", "323 KB", "165 KB"],
+        ["Desert dune, 5385 × 3590 (6.97 MB)", "631 KB", "394 KB", "165 KB"],
+        ["Storm sky, 4335 × 3137 (3.71 MB)", "277 KB", "143 KB", "73 KB"],
+        ["Total (33.81 MB)", "4.52 MB (−87%)", "2.41 MB (−93%)", "1.20 MB (−96%)"],
+      ],
+      note: "Halving the width removes about three quarters of the pixels, which is why resizing to the size you actually need usually saves more than any compression setting. Measured on 6 November 2026 with this tool in Chrome 156 (macOS). Test photos: five Wikimedia Commons featured pictures (10.6–19.3 megapixels) saved by their photographers at very high JPEG quality, so savings are larger than for photos a phone has already compressed. Other browsers use other encoders: in Safari's engine, JPG output was noticeably larger in our tests. Method and photo credits: [image compression levels tested](/guides/image-compression-levels-tested).",
+    },
     faq: [
       {
         q: "How do I resize an image without stretching it?",

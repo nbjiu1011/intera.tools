@@ -1,6 +1,16 @@
 import type { ToolSlug } from "../lib/tools";
 import type { WorkflowSlug } from "../lib/workflows";
 
+/** Results we measured ourselves with the tool, shown as a table with the method. */
+export type TestedResult = {
+  title: string;
+  intro: string;
+  head: string[];
+  rows: string[][];
+  /** Method, date, browser and caveats. */
+  note: string;
+};
+
 /** Long-form, search-facing copy for one tool page in one language. */
 export type ToolContent = {
   /** Tool name used in cards, nav and breadcrumbs, e.g. "Compress Image". */
@@ -25,6 +35,7 @@ export type ToolContent = {
   useCases: { title: string; body: string }[];
   /** Technical notes and limits, each one true for the current implementation. */
   limits: string[];
+  tested?: TestedResult;
   /** Four or five questions and answers. */
   faq: { q: string; a: string }[];
 };
@@ -42,10 +53,11 @@ export type WorkflowContent = {
   useCases: { title: string; body: string }[];
   about: { title: string; paragraphs: string[] };
   limits: string[];
+  tested?: TestedResult;
   faq: { q: string; a: string }[];
 };
 
-export type GuideCategory = "tutorials" | "comparisons" | "file-formats" | "troubleshooting";
+export type GuideCategory = "tutorials" | "comparisons" | "file-formats" | "troubleshooting" | "notes";
 
 /**
  * Guide body blocks. Text fields support **bold**, `code` and [label](/path) links;

@@ -14,6 +14,14 @@ import pngTransparencyExplained from "./png-transparency-explained";
 import productPhotosForOnlineStore from "./product-photos-for-online-store";
 import webpFormatExplained from "./webp-format-explained";
 import wifiQrCode from "./wifi-qr-code";
+import imageCompressionLevelsTested from "./image-compression-levels-tested";
+import passportPhotoSize from "./passport-photo-size";
+import printResolutionDpi from "./print-resolution-dpi";
+import reducePdfFileSize from "./reduce-pdf-file-size";
+import resumePdfUploadSize from "./resume-pdf-upload-size";
+import scanDocumentsToPdfWithPhone from "./scan-documents-to-pdf-with-phone";
+import testingEveryTool from "./testing-every-tool";
+import whyNoUploadNoSignup from "./why-no-upload-no-signup";
 
 const guideContent: Record<GuideSlug, Record<Locale, GuideContent>> = {
   "compress-images-without-losing-quality": compressImagesWithoutLosingQuality,
@@ -29,6 +37,14 @@ const guideContent: Record<GuideSlug, Record<Locale, GuideContent>> = {
   "browser-based-file-processing": browserBasedFileProcessing,
   "image-wont-open-or-convert": imageWontOpenOrConvert,
   "pdf-wont-open-or-merge": pdfWontOpenOrMerge,
+  "image-compression-levels-tested": imageCompressionLevelsTested,
+  "passport-photo-size": passportPhotoSize,
+  "print-resolution-dpi": printResolutionDpi,
+  "resume-pdf-upload-size": resumePdfUploadSize,
+  "scan-documents-to-pdf-with-phone": scanDocumentsToPdfWithPhone,
+  "reduce-pdf-file-size": reducePdfFileSize,
+  "testing-every-tool": testingEveryTool,
+  "why-no-upload-no-signup": whyNoUploadNoSignup,
 };
 
 export default guideContent;

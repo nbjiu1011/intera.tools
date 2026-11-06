@@ -113,6 +113,7 @@ export const en = {
     comparisons: "Comparisons",
     "file-formats": "File Formats",
     troubleshooting: "Troubleshooting",
+    notes: "Maker's notes",
   },
   workflowSteps: {
     select: "Select",
